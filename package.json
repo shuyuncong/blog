@@ -4,7 +4,7 @@
 	"private": true,
 	"packageManager": "pnpm@9.15.0",
 	"engines": {
-		"node": ">=20"
+		"node": "24.x"
 	},
 	"scripts": {
 		"dev": "astro dev",
@@ -16,31 +16,30 @@
 		"check": "astro check"
 	},
 	"dependencies": {
-		"@astrojs/mdx": "^4.3.14",
+		"@astrojs/mdx": "^8.1.3",
 		"@astrojs/rss": "4.0.19",
 		"@astrojs/sitemap": "3.7.4",
-		"@astrojs/tailwind": "6.0.2",
 		"@vercel/analytics": "^1.5.0",
-		"astro": "^5.18.2",
+		"astro": "^7.4.7",
 		"astro-expressive-code": "^0.44.3",
 		"astro-icon": "^1.2.0",
 		"rehype-external-links": "^3.0.0",
 		"satori": "0.10.13",
 		"satori-html": "^0.3.2",
-		"sharp": "^0.33.2"
+		"sharp": "^0.35.4"
 	},
 	"devDependencies": {
 		"@astrojs/check": "^0.9.12",
+		"@astrojs/markdown-remark": "7.3.6",
 		"@iconify-json/mdi": "^1.1.66",
 		"@pagefind/default-ui": "^1.1.0",
 		"@resvg/resvg-js": "^2.6.2",
-		"@tailwindcss/aspect-ratio": "^0.4.2",
-		"@tailwindcss/typography": "^0.5.12",
+		"@tailwindcss/typography": "^0.5.20",
+		"@tailwindcss/vite": "4.3.4",
 		"@types/eslint": "^8.56.7",
 		"@typescript-eslint/eslint-plugin": "^7.5.0",
 		"@typescript-eslint/parser": "^7.5.0",
 		"astro-eslint-parser": "^0.16.3",
-		"autoprefixer": "^10.4.19",
 		"eslint": "^8.57.0",
 		"eslint-import-resolver-typescript": "^3.6.1",
 		"eslint-plugin-astro": "^0.34.0",
@@ -53,15 +52,17 @@
 		"eslint-plugin-typescript-sort-keys": "^3.2.0",
 		"mdast-util-to-string": "^4.0.0",
 		"pagefind": "^1.1.0",
-		"postcss": "^8.4.38",
-		"postcss-html": "^1.6.0",
-		"postcss-import": "^16.1.0",
-		"prettier": "^3.2.5",
-		"prettier-plugin-astro": "0.13.0",
-		"prettier-plugin-tailwindcss": "^0.5.13",
+		"prettier": "^3.9.10",
+		"prettier-plugin-astro": "1.1.2",
+		"prettier-plugin-tailwindcss": "^0.8.1",
 		"reading-time": "^1.5.0",
 		"remark-unwrap-images": "^4.0.0",
-		"tailwindcss": "^3.4.3",
+		"tailwindcss": "^4.3.4",
 		"typescript": "^5.4.4"
+	},
+	"pnpm": {
+		"overrides": {
+			"@emnapi/runtime": "1.11.3"
+		}
 	}
 }

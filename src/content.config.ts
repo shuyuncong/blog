@@ -1,4 +1,6 @@
-import { defineCollection, z } from "astro:content";
+import { defineCollection } from "astro:content";
+import { glob } from "astro/loaders";
+import { z } from "astro/zod";
 
 function removeDupsAndLowerCase(array: string[]) {
 	if (!array.length) return array;
@@ -11,10 +13,16 @@ const dateSchema = z
 	.union([z.string(), z.date()])
 	.transform((value) => new Date(value))
 	.refine((date) => !Number.isNaN(date.getTime()), {
-		message: "Date must be a valid ISO date (YYYY-MM-DD)",
+		message: "Date must be a valid date",
 	});
 
 const post = defineCollection({
+	loader: glob({
+		base: "./src/content/post",
+		generateId: ({ entry }) =>
+			entry.replace(/\.(md|mdx)$/, "").replace(/\/index$/, "").toLowerCase(),
+		pattern: "**/*.{md,mdx}",
+	}),
 	schema: ({ image }) =>
 		z
 			.object({
@@ -32,16 +40,13 @@ const post = defineCollection({
 				title: z.string().max(60),
 				updatedDate: dateSchema.optional(),
 			})
-			.superRefine(({ publishDate, updatedDate }, ctx) => {
-				if (updatedDate && updatedDate < publishDate) {
-					ctx.addIssue({
-						code: z.ZodIssueCode.custom,
-						message: "updatedDate must not be earlier than publishDate",
-						path: ["updatedDate"],
-					});
-				}
-			}),
-	type: "content",
+			.refine(
+				({ publishDate, updatedDate }) => !updatedDate || updatedDate >= publishDate,
+				{
+					message: "updatedDate must not be earlier than publishDate",
+					path: ["updatedDate"],
+				},
+			),
 });
 
 export const collections = { post };

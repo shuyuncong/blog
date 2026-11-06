@@ -6,9 +6,9 @@
 
 ## 技术栈
 
-- Astro 5（静态站点生成）
-- TypeScript + Content Collections（Zod 校验）
-- Tailwind CSS + `@tailwindcss/typography`
+- Astro 7（静态站点生成）
+- TypeScript + Content Layer / Content Collections（Zod 校验）
+- Tailwind CSS 4 + `@tailwindcss/vite` + `@tailwindcss/typography`
 - Expressive Code（代码高亮）
 - Satori + Resvg（文章 Open Graph 图片）
 - Pagefind（静态搜索）
@@ -17,7 +17,7 @@
 
 ## 本地开发
 
-需要 Node.js 20+ 与 pnpm 9+：
+需要 Node.js 22.23.4+（推荐 24 LTS）与 pnpm 9+：
 
 ```bash
 pnpm install
@@ -41,8 +41,8 @@ src/
 ├── assets/                 # 字体与静态图片
 ├── components/             # 可复用组件
 ├── content/
-│   ├── config.ts           # 内容集合与 frontmatter 校验
 │   └── post/               # Markdown 文章
+├── content.config.ts       # Content Layer loader 与 frontmatter 校验
 ├── data/post.ts            # 草稿过滤、排序、分组、标签统计
 ├── layouts/                # Base / BlogPost 布局
 ├── pages/                  # 首页、文章、标签、RSS、OG 图片

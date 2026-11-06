@@ -1,5 +1,6 @@
 ---
 import type { CollectionEntry } from "astro:content";
+import { render } from "astro:content";
 
 import { Image } from "astro:assets";
 
@@ -9,11 +10,10 @@ interface Props {
 	content: CollectionEntry<"post">;
 }
 
-const {
-	content: { data, render },
-} = Astro.props;
+const { content } = Astro.props;
+const { data } = content;
 
-const { remarkPluginFrontmatter } = await render();
+const { remarkPluginFrontmatter } = await render(content);
 
 const dateTimeOptions: Intl.DateTimeFormatOptions = {
 	month: "long",
@@ -22,10 +22,10 @@ const dateTimeOptions: Intl.DateTimeFormatOptions = {
 
 {
 	data.coverImage && (
-		<div class="aspect-h-9 aspect-w-16 mb-6">
+		<div class="aspect-video mb-6 overflow-hidden">
 			<Image
 				alt={data.coverImage.alt}
-				class="object-cover"
+				class="h-full w-full object-cover"
 				fetchpriority="high"
 				loading="eager"
 				src={data.coverImage.src}

@@ -6,6 +6,7 @@ module.exports = {
 	tabWidth: 2,
 	useTabs: true,
 	plugins: ["prettier-plugin-astro", "prettier-plugin-tailwindcss" /* Must come last */],
+	tailwindStylesheet: "./src/styles/global.css",
 	overrides: [
 		{
 			files: "*.astro",

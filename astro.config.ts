@@ -1,6 +1,7 @@
+import { unified } from "@astrojs/markdown-remark";
 import mdx from "@astrojs/mdx";
 import sitemap from "@astrojs/sitemap";
-import tailwind from "@astrojs/tailwind";
+import tailwindcss from "@tailwindcss/vite";
 import { defineConfig } from "astro/config";
 import expressiveCode from "astro-expressive-code";
 import icon from "astro-icon";
@@ -17,31 +18,31 @@ export default defineConfig({
 	image: {
 		domains: ["webmention.io"],
 	},
-  integrations: [
+	compressHTML: true,
+	integrations: [
 		expressiveCode(expressiveCodeOptions),
 		icon(),
-		tailwind({
-			applyBaseStyles: false,
-		}),
 		sitemap(),
 		mdx(),
 	],
 	markdown: {
-		rehypePlugins: [
-			[
-				rehypeExternalLinks,
-				{
-					rel: ["nofollow", "noopener", "noreferrer"],
-					target: "_blank",
-				},
+		processor: unified({
+			rehypePlugins: [
+				[
+					rehypeExternalLinks,
+					{
+						rel: ["nofollow", "noopener", "noreferrer"],
+						target: "_blank",
+					},
+				],
 			],
-		],
-		remarkPlugins: [remarkUnwrapImages, remarkReadingTime],
-		remarkRehype: {
-			footnoteLabelProperties: {
-				className: [""],
+			remarkPlugins: [remarkUnwrapImages, remarkReadingTime],
+			remarkRehype: {
+				footnoteLabelProperties: {
+					className: [""],
+				},
 			},
-		},
+		}),
 	},
 	// https://docs.astro.build/en/guides/prefetch/
 	prefetch: true,
@@ -51,7 +52,7 @@ export default defineConfig({
 		optimizeDeps: {
 			exclude: ["@resvg/resvg-js"],
 		},
-		plugins: [rawFonts([".ttf", ".woff"])],
+		plugins: [tailwindcss(), rawFonts([".ttf", ".woff"])],
 	},
 });
 
