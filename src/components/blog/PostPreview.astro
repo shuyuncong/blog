@@ -23,3 +23,12 @@ const postDate = getPostSortDate(post);
 	</a>
 </Tag>
 {withDesc && <q class="line-clamp-3 italic">{post.data.description}</q>}
+<style>
+	.cactus-link {
+		color: hsl(var(--theme-accent-1));
+	}
+
+	.cactus-link:hover {
+		color: hsl(var(--theme-link));
+	}
+</style>
