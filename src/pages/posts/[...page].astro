@@ -52,7 +52,7 @@ const descYearKeys = Object.keys(groupedByYear).sort((a, b) => +b - +a);
 		<section aria-label="文章列表">
 			{
 				descYearKeys.map((yearKey) => (
-					<>
+					<div>
 						<h2 class="title text-lg">{yearKey}</h2>
 						<ul class="mb-8 mt-6 space-y-8 text-start">
 							{groupedByYear[yearKey]?.map((p) => (
@@ -61,7 +61,7 @@ const descYearKeys = Object.keys(groupedByYear).sort((a, b) => +b - +a);
 								</li>
 							))}
 						</ul>
-					</>
+					</div>
 				))
 			}
 			<Pagination {...paginationProps} />

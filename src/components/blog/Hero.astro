@@ -72,14 +72,14 @@ const dateTimeOptions: Intl.DateTimeFormatOptions = {
 				<path d="M6 9h-.01" />
 			</svg>
 			{data.tags.map((tag, i) => (
-				<>
+				<span>
 					<a
 						aria-label={`View more blogs with the tag ${tag}`}
 						class="cactus-link inline-block before:content-['#']"
 						data-pagefind-filter="tag"
 						href={`/tags/${encodeURIComponent(tag)}/`}
 					>{tag}</a>{i < data.tags.length - 1 && ", "}
-				</>
+				</span>
 			))}
 		</div>
 	)
