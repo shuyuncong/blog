@@ -1,7 +1,7 @@
 ---
 title: "Emby 公益服初体验及劝退指南"
 description: "Emby 公益服让你免去自己购买 NAS 或服务器来下载、整理、刮削影片等诸多麻烦的流程，只需要用 Emby 客户端连上 Emby 公益服务器即可在各种设备上观影。"
-publishDate: "2024/09/22"
+publishDate: "2024-09-22"
 tags: ["NAS", "影音海报墙", "公益服", "终点站"]
 ---
 

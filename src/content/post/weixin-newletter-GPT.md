@@ -1,7 +1,7 @@
 ---
 title: "Newletter 和 GPT"
 description: "传统的信息获取方式和内容消费模式正在被AI技术和算法推动的新模式所取代，这种新模式强调快速吸引和持续保持用户注意力，但却可能牺牲了信息的深度和质量。原创独立博客和Newsletter等传统的内容传递方式显得愈发珍贵。"
-publishDate: "2024/06/22"
+publishDate: "2024-06-22"
 tags: ["公众号", "Newletter", "GPT"]
 ---
 

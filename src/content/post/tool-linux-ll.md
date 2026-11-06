@@ -1,7 +1,7 @@
 ---
 title: "Linux 查看当前文件目录文件夹大小"
 description: "介绍使用 du 命令来查看文件和目录的大小。du（Disk Usage）是一个Linux/Unix系统中的命令，用于显示目录或文件所占用的磁盘空间。"
-publishDate: "2024/07/12"
+publishDate: "2024-07-12"
 tags: ["工具", "Linux"]
 
 ---

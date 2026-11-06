@@ -1,7 +1,7 @@
 ---
 title: "CentOS 7 系统安装 Docker "
 description: "CentOS 7 系统安装 Docker：包括准备工作、更换国内源、安装Docker、配置镜像加速、验证安装等几个主要部分"
-publishDate: "2025/08/01"
+publishDate: "2025-08-01"
 tags: ["CentOS", "Docker"]
 
 ---

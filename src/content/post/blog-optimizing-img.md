@@ -1,7 +1,7 @@
 ---
 title: "图床方案迭代记录（Cloudflare R2 + PicGo）"
 description: "介绍从直接在博客资源目录存储图片，到使用图床服务的转变过程。通过配置Cloudflare R2和PicGo，作者搭建了一个免费、稳定且无需备案的图床系统，提高了图片管理效率和博客加载速度。"
-publishDate: "2024/12/15"
+publishDate: "2024-12-15"
 tags: ["博客", "blog", "CDN", "Cloudflare R2", "PicGo"]
 ---
 

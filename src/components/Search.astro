@@ -11,7 +11,7 @@ import "@pagefind/default-ui/css/ui.css";
 		disabled
 	>
 		<svg
-			aria-label="search"
+			aria-label="搜索"
 			class="h-7 w-7"
 			fill="none"
 			height="16"
@@ -28,13 +28,13 @@ import "@pagefind/default-ui/css/ui.css";
 		</svg>
 	</button>
 	<dialog
-		aria-label="search"
+		aria-label="搜索"
 		class="h-full max-h-full w-full max-w-full border border-zinc-400 bg-bgColor shadow backdrop:backdrop-blur sm:mx-auto sm:mb-auto sm:mt-16 sm:h-max sm:max-h-[calc(100%-8rem)] sm:min-h-[15rem] sm:w-5/6 sm:max-w-[48rem] sm:rounded-md"
 	>
 		<div class="dialog-frame flex flex-col gap-4 p-6 pt-12 sm:pt-6">
 			<button
 				class="ms-auto cursor-pointer rounded-md bg-zinc-200 p-2 font-semibold dark:bg-zinc-700"
-				data-close-modal>Close</button
+				data-close-modal>关闭</button
 			>
 			{
 				import.meta.env.DEV ? (
@@ -122,6 +122,19 @@ import "@pagefind/default-ui/css/ui.css";
 					element: "#cactus__search",
 					showImages: false,
 					showSubResults: true,
+					translations: {
+						alt_search: "没有找到 [SEARCH_TERM] 的结果。显示 [DIFFERENT_TERM] 的结果：",
+						clear_search: "清除",
+						filters_label: "筛选",
+						load_more: "加载更多结果",
+						many_results: "[COUNT] 个 [SEARCH_TERM] 的结果",
+						one_result: "[COUNT] 个 [SEARCH_TERM] 的结果",
+						placeholder: "搜索",
+						search_label: "搜索本站",
+						search_suggestion: "没有找到 [SEARCH_TERM] 的结果。尝试以下搜索之一：",
+						searching: "正在搜索 [SEARCH_TERM]…",
+						zero_results: "没有找到 [SEARCH_TERM] 的结果",
+					},
 				});
 			});
 		}
@@ -165,25 +178,13 @@ import "@pagefind/default-ui/css/ui.css";
 	}
 
 	#cactus__search .pagefind-ui__result-link {
-		background-size: 100% 6px;
-		background-position: bottom;
-		background-repeat: repeat-x;
-		background-image: linear-gradient(
-			transparent,
-			transparent 5px,
-			theme("colors.textColor") 5px,
-			theme("colors.textColor")
-		);
+		color: theme("colors.link");
+		text-decoration: none;
 	}
 
 	#cactus__search .pagefind-ui__result-link:hover {
+		color: theme("colors.accent");
 		text-decoration: none;
-		background-image: linear-gradient(
-			transparent,
-			transparent 4px,
-			theme("colors.link") 4px,
-			theme("colors.link")
-		);
 	}
 
 	#cactus__search mark {

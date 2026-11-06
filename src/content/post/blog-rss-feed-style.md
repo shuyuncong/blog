@@ -1,7 +1,7 @@
 ---
 title: "在Astro项目中集成RSS.Beauty样式优化指南"
 description: "本教程介绍如何在Astro项目中优化RSS订阅源样式，使用RSS.Beauty工具生成XSL文件，并通过修改rss.xml.js文件集成美化样式，提升RSS阅读体验。"
-publishDate: "2025/03/20"
+publishDate: "2025-03-20"
 tags: ["博客", "blog", "Beauty", "订阅源"]
 ---
 

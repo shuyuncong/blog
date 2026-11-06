@@ -1,7 +1,7 @@
 ---
 title: "程序员的写作环境"
 description: "使用本地 markdown 文件和坚果云同步，通过 Typora 管理笔记目录，并定期备份到 GitHub，确保数据安全和易访问性。"
-publishDate: "2024/05/31"
+publishDate: "2024-05-31"
 tags: ["公众号", "写作"]
 ---
 

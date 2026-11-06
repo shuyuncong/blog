@@ -1,7 +1,7 @@
 ---
 title: "土耳其苹果iCloud服务保姆级教程"
 description: "完成了土区iCloud 账号的注册，购买土耳其 AppStore 礼品卡，订阅土耳其 iCloud+计划，创建一个跨国家庭，并共享 iCloud+ 的存储空间"
-publishDate: "2024/07/21"
+publishDate: "2024-07-21"
 tags: ["公众号", "icloud"]
 ---
 

@@ -28,9 +28,9 @@ export default {
 			addComponents({
 				".cactus-link": {
 					"&:hover": {
-						"@apply decoration-link decoration-2": {},
+						"@apply text-accent": {},
 					},
-					"@apply underline underline-offset-2": {},
+					"@apply text-link no-underline": {},
 				},
 				".title": {
 					"@apply text-2xl font-semibold text-accent-2": {},
@@ -64,6 +64,7 @@ export default {
 					css: {
 						a: {
 							"@apply cactus-link": "",
+							textDecoration: "none",
 						},
 						blockquote: {
 							borderLeftWidth: "0",

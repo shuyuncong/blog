@@ -1,5 +1,8 @@
 import type { APIContext, InferGetStaticPropsType } from "astro";
 
+import fs from "node:fs";
+import path from "node:path";
+
 import RobotoMonoBold from "@/assets/roboto-mono-700.ttf";
 import RobotoMono from "@/assets/roboto-mono-regular.ttf";
 import { getAllPosts } from "@/data/post";
@@ -8,6 +11,10 @@ import { getFormattedDate } from "@/utils";
 import { Resvg } from "@resvg/resvg-js";
 import satori, { type SatoriOptions } from "satori";
 import { html } from "satori-html";
+
+const fontDir = path.join(process.cwd(), "assets/fonts");
+const notoSansSC = fs.readFileSync(path.join(fontDir, "noto-sans-sc-regular-subset.woff"));
+const notoSansSCBold = fs.readFileSync(path.join(fontDir, "noto-sans-sc-bold-subset.woff"));
 
 const ogOptions: SatoriOptions = {
 	// debug: true,
@@ -21,6 +28,18 @@ const ogOptions: SatoriOptions = {
 		{
 			data: Buffer.from(RobotoMonoBold),
 			name: "Roboto Mono",
+			style: "normal",
+			weight: 700,
+		},
+		{
+			data: notoSansSC,
+			name: "Noto Sans SC",
+			style: "normal",
+			weight: 400,
+		},
+		{
+			data: notoSansSCBold,
+			name: "Noto Sans SC",
 			style: "normal",
 			weight: 700,
 		},

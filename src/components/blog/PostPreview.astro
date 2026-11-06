@@ -17,15 +17,9 @@ const postDate = getPostSortDate(post);
 
 <FormattedDate class="min-w-[120px] text-gray-600 dark:text-gray-400" date={postDate} />
 <Tag>
-	{post.data.draft && <span class="text-red-500">(Draft) </span>}
+	{post.data.draft && <span class="text-red-500">(草稿) </span>}
 	<a class="cactus-link" data-astro-prefetch href={`/posts/${post.slug}/`}>
 		{post.data.title}
 	</a>
 </Tag>
 {withDesc && <q class="line-clamp-3 italic">{post.data.description}</q>}
-<style>
-  	.cactus-link {   
-		color: hsl(var(--theme-accent-1));
-    	text-decoration: none; 
-	}
-</style>

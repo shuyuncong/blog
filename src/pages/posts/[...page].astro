@@ -23,20 +23,20 @@ interface Props {
 const { page, uniqueTags } = Astro.props;
 
 const meta = {
-	description: "Read my collection of posts and the things that interest me",
-	title: "Posts",
+	description: "阅读我收集的文章和我感兴趣的内容。",
+	title: "博客",
 };
 
 const paginationProps = {
 	...(page.url.prev && {
 		prevUrl: {
-			text: `← Previous Page`,
+			text: `← 上一页`,
 			url: page.url.prev,
 		},
 	}),
 	...(page.url.next && {
 		nextUrl: {
-			text: `Next Page →`,
+			text: `下一页 →`,
 			url: page.url.next,
 		},
 	}),
@@ -47,9 +47,9 @@ const descYearKeys = Object.keys(groupedByYear).sort((a, b) => +b - +a);
 ---
 
 <PageLayout meta={meta}>
-	<h1 class="title mb-6">Posts</h1>
+	<h1 class="title mb-6">博客</h1>
 	<div class="grid gap-y-16 sm:grid-cols-[3fr_1fr] sm:gap-x-8">
-		<section aria-label="Blog post list">
+		<section aria-label="文章列表">
 			{
 				descYearKeys.map((yearKey) => (
 					<>
@@ -94,7 +94,7 @@ const descYearKeys = Object.keys(groupedByYear).sort((a, b) => +b - +a);
 								<a
 									aria-label={`View all posts with the tag: ${tag}`}
 									class="flex items-center justify-center rounded-lg  p-1"
-									href={`/tags/${tag}/`}
+									href={`/tags/${encodeURIComponent(tag)}/`}
 								>
 									{tag}
 								</a>

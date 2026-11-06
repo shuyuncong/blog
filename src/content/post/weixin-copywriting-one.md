@@ -1,7 +1,7 @@
 ---
 title: "【文案绘梦馆】终其一生，满是遗憾（一）"
 description: "关于爱情、遗憾、失去和自我反省的深刻情感，从感恩遇见到释怀错过，从初恋的热烈到分手的痛苦，从对未来的希望到对过往的遗憾"
-publishDate: "2024/07/15"
+publishDate: "2024-07-15"
 coverImage:
   src: "./img/weixin-copywriting-one.png"
   alt: "遗憾"

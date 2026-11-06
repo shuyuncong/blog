@@ -1,7 +1,7 @@
 ---
 title: "【文案绘梦馆】蝉活八日 向死而生"
 description: "我觉得，对我来说最迫切的问题，是迄今为止我没能真正地爱上谁，有生以来，我从没有无条件地爱过一个人，从没有产生过为了谁可以抛弃一切的心情，连一次都没有"
-publishDate: "2024/07/21"
+publishDate: "2024-07-21"
 coverImage:
   src: "./img/weixin-life-or-death.jpg"
   alt: "遗憾"

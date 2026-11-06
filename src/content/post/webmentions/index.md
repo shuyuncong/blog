@@ -1,9 +1,9 @@
 ---
 title: "Adding Webmentions to Astro Cactus"
 description: "This post describes the process of adding webmentions to your own site"
-publishDate: "2023/01/16"
+publishDate: "2023-01-16"
 tags: ["webmentions", "astro", "social", "example"]
-updatedDate: 8 April 2023
+updatedDate: "2023-04-08"
 draft: true
 ---
 

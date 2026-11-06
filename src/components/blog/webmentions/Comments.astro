@@ -26,7 +26,7 @@ const comments = mentions.filter(
 	!!comments.length && (
 		<div>
 			<p class="mb-0 text-accent-2">
-				<strong>{comments.length}</strong> Mention{comments.length > 1 ? "s" : ""}
+				<strong>{comments.length}</strong> 条提及
 			</p>
 			<ul class="mt-0 divide-y divide-textColor/20 ps-0" role="list">
 				{comments.map((mention) => (
@@ -62,14 +62,14 @@ const comments = mentions.filter(
 							<div class="flex items-center justify-between gap-x-2">
 								<p class="my-0 line-clamp-1 font-semibold text-accent-2">{mention.author?.name}</p>
 								<a
-									aria-labelledby="cmt-source"
+									aria-labelledby={`cmt-source-${mention["wm-id"]}`}
 									class="not-prose hover:text-link"
 									href={mention.url}
 									rel="noopener noreferrer"
 									target="_blank"
 								>
-									<span class="hidden" id="cmt-source">
-										Vist the source of this webmention
+									<span class="hidden" id={`cmt-source-${mention["wm-id"]}`}>
+										查看这条 Webmention 的来源
 									</span>
 									<Icon
 										aria-hidden="true"

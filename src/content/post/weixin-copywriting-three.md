@@ -1,7 +1,7 @@
 ---
 title: "【文案绘梦馆】终其一生，满是遗憾（三）"
 description: "我知道，我是无法成为你的伴侣，与你同行。在我们眼所能见耳所能听的这个世界，上帝不会将我的手置于你的手中。这些，我都已经答应过了"
-publishDate: "2024/07/19"
+publishDate: "2024-07-19"
 coverImage:
   src: "./img/weixin-copywriting-one.png"
   alt: "遗憾"

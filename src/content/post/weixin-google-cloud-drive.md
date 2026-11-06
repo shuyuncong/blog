@@ -1,7 +1,7 @@
 ---
 title: "聊一聊 Google 云盘的无限空间！"
 description: "如何在使用Google云盘扩展存储空间时，选择不同方式的利弊和安全性。作者分享了通过直接购买存储、获取教育号或企业号等方式来获得无限空间的方法。"
-publishDate: "2024/07/06"
+publishDate: "2024-07-06"
 tags: ["公众号", "Google Drive"]
 ---
 

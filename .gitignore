@@ -15,7 +15,12 @@ pnpm-debug.log*
 
 # environment variables
 .env
+.env.*
+!.example.env
 .env.production
+
+# webmention cache
+.data/
 
 # macOS-specific files
 .DS_Store

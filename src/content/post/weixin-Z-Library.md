@@ -1,7 +1,7 @@
 ---
 title: "Z-Library，无限图书计划"
 description: "Z-Library，一个提供电子书和期刊文章下载的平台，被称为全球最大的数字图书馆。提供了注册流程、使用限制（每天下载限制为10本书）、文件格式支持（如PDF、TXT、MOBI）、在线转换功能以及与Kindle设备的兼容性。"
-publishDate: "2024/06/29"
+publishDate: "2024-06-29"
 tags: ["公众号", "Z-Library"]
 ---
 

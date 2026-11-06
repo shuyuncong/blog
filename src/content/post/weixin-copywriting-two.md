@@ -1,7 +1,7 @@
 ---
 title: "【文案绘梦馆】终其一生，满是遗憾（二）"
 description: "青春有两件事儿曾经让我尤其不能释怀。那些年因为不够努力而被浪费的天赋，和那些年因为不够豁达而被计较在小情怀里面的时光"
-publishDate: "2024/07/17"
+publishDate: "2024-07-17"
 coverImage:
   src: "./img/weixin-copywriting-one.png"
   alt: "遗憾"

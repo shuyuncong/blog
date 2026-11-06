@@ -14,18 +14,19 @@ export const siteConfig: SiteConfig = {
 		},
 	},
 	// Meta property used as the default description meta property
-	description: "An opinionated starter theme for Astro",
+	description: "云端的杂货铺：记录生活、技术问题解决与偶尔的哲学思考。",
 	// HTML lang property, found in src/layouts/Base.astro L:18
 	lang: "zh-cn",
 	// Meta property, found in src/components/BaseHead.astro L:42
-	ogLocale: "zh-cn",
+	ogLocale: "zh_CN",
 	// Option to sort posts by updatedDate if set to true (if property exists). Default (false) will sort by publishDate
 	sortPostsByUpdatedDate: false,
 	// Meta property used to construct the meta title property, found in src/components/BaseHead.astro L:11
 	title: "云端的杂货铺",
 	webmentions: {
-		// Webmention.io API endpoint. Get your own here: https://webmention.io/, and follow this blog post: https://astro-cactus.chriswilliams.dev/posts/webmentions/
-		link: "https://blog.illsky.com/",
+		// Webmention.io endpoint used for discovery via <link rel="webmention">.
+		// Find your own endpoint at https://webmention.io/.
+		link: "https://webmention.io/blog.illsky.com/webmention",
 	},
 };
 

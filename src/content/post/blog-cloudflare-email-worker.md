@@ -1,7 +1,7 @@
 ---
 title: "使用 Cloudflare email worker 实现的临时电子邮件服务"
 description: "无需服务器，10分钟搭建隐私友好的临时邮箱！基于Cloudflare Worker和Turso数据库，轻松实现邮件接收与存储，保护隐私从此无忧。"
-publishDate: "2025/02/15"
+publishDate: "2025-02-15"
 tags: ["博客", "blog", "Cloudflare", "worker", "Vercel", "临时电子邮件"]
 ---
 

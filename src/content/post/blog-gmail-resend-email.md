@@ -1,7 +1,7 @@
 ---
 title: "Cloudflare + Gmail + Resend 十分钟轻松拥有免费的企业邮箱"
 description: "利用Cloudflare、Gmail和Resend快速搭建免费的企业邮箱。通过Cloudflare的电子邮件路由功能接收邮件并转发至Gmail，再结合Resend的API实现邮件发送，最终在Gmail中添加自定义邮箱，轻松实现专业的企业邮箱服务。"
-publishDate: "2025/01/04"
+publishDate: "2025-01-04"
 tags: ["博客", "blog", "Gmail", "Resend", "企业邮箱"]
 ---
 
