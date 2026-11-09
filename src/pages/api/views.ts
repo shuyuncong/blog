@@ -17,8 +17,16 @@ function firstEnv(...keys: string[]) {
 	return undefined;
 }
 
-const redisUrl = firstEnv("KV_REST_API_URL", "UPSTASH_REDIS_REST_URL");
-const redisToken = firstEnv("KV_REST_API_TOKEN", "UPSTASH_REDIS_REST_TOKEN");
+const redisUrl = firstEnv(
+	"BLOG_KV_REST_API_URL",
+	"KV_REST_API_URL",
+	"UPSTASH_REDIS_REST_URL",
+);
+const redisToken = firstEnv(
+	"BLOG_KV_REST_API_TOKEN",
+	"KV_REST_API_TOKEN",
+	"UPSTASH_REDIS_REST_TOKEN",
+);
 const redis = redisUrl && redisToken ? new Redis({ url: redisUrl, token: redisToken }) : null;
 
 // Development fallback so the counter works without a Redis instance.

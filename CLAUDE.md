@@ -31,7 +31,7 @@ pnpm format        # 使用 Prettier 格式化代码
 
 **搜索**：Pagefind 对构建后的 `.vercel/output/static/` 目录建立索引，`pnpm build` 后自动运行 `pnpm postbuild`。
 
-**阅读量**：`src/pages/api/views.ts` 是 on-demand API 路由，使用 `@upstash/redis` 对 `post:pv:<slug>` 执行 `INCR`；Vercel 上通过 Marketplace 连接 Upstash Redis 注入 `UPSTASH_REDIS_REST_*` 或旧的 `KV_REST_API_*`。本地 `pnpm dev` 未配置 Redis 时使用进程内计数器。
+**阅读量**：`src/pages/api/views.ts` 是 on-demand API 路由，使用 `@upstash/redis` 对 `post:pv:<slug>` 执行 `INCR`；Vercel 集成注入的环境变量带 `BLOG_` 前缀，优先读取 `BLOG_KV_REST_API_URL` / `BLOG_KV_REST_API_TOKEN`，也兼容无前缀的 `KV_REST_API_*` 和 `UPSTASH_REDIS_REST_*`。本地 `pnpm dev` 未配置 Redis 时使用进程内计数器。
 
 ## 代码风格
 

@@ -78,16 +78,19 @@ draft: false
 
 ```dotenv
 WEBMENTION_API_KEY=your-webmention-io-token
-UPSTASH_REDIS_REST_URL=your-upstash-redis-rest-url
-UPSTASH_REDIS_REST_TOKEN=your-upstash-redis-rest-token
-# 旧 Vercel KV / 已迁移存储使用下面两个变量，代码同样支持
-KV_REST_API_URL=
-KV_REST_API_TOKEN=
+# 本项目 Vercel KV/Upstash 集成注入的变量（带 BLOG_ 前缀）
+BLOG_KV_REST_API_URL=your-upstash-redis-rest-url
+BLOG_KV_REST_API_TOKEN=your-upstash-redis-rest-token
+# 也支持以下无前缀别名（任选一组）：
+# KV_REST_API_URL=
+# KV_REST_API_TOKEN=
+# UPSTASH_REDIS_REST_URL=
+# UPSTASH_REDIS_REST_TOKEN=
 ```
 
 未配置 token 时，构建会跳过 Webmention 抓取，页面不会展示互动区。
 
-文章阅读量由 `src/pages/api/views.ts` 写入 Redis。Vercel KV 已下线，现有 KV 存储已迁移到 [Upstash Redis](https://vercel.com/marketplace/upstash)：在 Vercel 项目的 Storage 中连接 Upstash Redis 后，环境变量会自动注入（新集成为 `UPSTASH_REDIS_REST_URL` / `UPSTASH_REDIS_REST_TOKEN`，旧 KV 存储为 `KV_REST_API_URL` / `KV_REST_API_TOKEN`，代码两种都支持）。本地开发可运行 `vercel env pull` 或手动填入 `.env`。
+文章阅读量由 `src/pages/api/views.ts` 写入 Redis。Vercel KV 已下线，现有 KV 存储已迁移到 [Upstash Redis](https://vercel.com/marketplace/upstash)：在 Vercel 项目的 Storage 中连接 Redis 后，环境变量会自动注入。本项目集成使用 `BLOG_` 前缀，因此代码优先读取 `BLOG_KV_REST_API_URL` / `BLOG_KV_REST_API_TOKEN`，同时兼容无前缀的 `KV_REST_API_*` 和 `UPSTASH_REDIS_REST_*`。`BLOG_KV_REST_API_READ_ONLY_TOKEN` 是只读 token，不能用于 `INCR`；`BLOG_KV_URL` / `BLOG_REDIS_URL` 是 Redis 协议地址，当前 REST 客户端不使用。
 
 生产环境未配置 Redis 时，`/api/views` 返回 503，阅读量保持 `--`；本地 `pnpm dev` 未配置 Redis 时使用进程内计数器，方便调试。
 
