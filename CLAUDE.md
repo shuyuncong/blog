@@ -8,17 +8,16 @@
 pnpm install       # 安装依赖
 pnpm dev           # 启动本地开发服务器
 pnpm check         # Astro 类型和内容校验
-pnpm build         # 生产构建，输出到 dist/
-pnpm postbuild     # 生成 Pagefind 搜索索引（build 后运行）
-pnpm preview       # 本地预览生产构建
+pnpm build         # 生产构建，输出到 .vercel/output/static，并自动执行 postbuild
+pnpm postbuild     # 生成 Pagefind 搜索索引（build 后自动运行）
 pnpm format        # 使用 Prettier 格式化代码
 ```
 
-提交前：运行 `pnpm check` 和 `pnpm build`。涉及搜索功能的改动需额外运行 `pnpm build && pnpm postbuild`。
+提交前：运行 `pnpm check` 和 `pnpm build`。涉及搜索功能的改动由 `pnpm build` 自动重建 `.vercel/output/static/pagefind`。Vercel 适配器不支持 `astro preview`；需要完整本地预览（含 `/api/views`）时运行 `npx vercel dev`。
 
 ## 架构概述
 
-这是一个基于 **Astro 5 静态博客**（astro-cactus 主题），使用 Tailwind CSS、MDX 支持和 Pagefind 搜索。
+这是一个基于 **Astro 7 静态博客**（astro-cactus 主题），使用 Tailwind CSS、MDX 支持和 Pagefind 搜索，通过 Vercel 适配器部署。
 
 **内容层**：博客文章存放在 `src/content/post/`，格式为 Markdown/MDX。Frontmatter 结构定义在 `src/content/config.ts`，必填字段：`title`（最多 60 字符）、`description`（50–160 字符）、`publishDate`、`tags`（自动小写/去重）。可选字段：`coverImage`、`ogImage`、`draft`、`updatedDate`。
 
@@ -30,7 +29,9 @@ pnpm format        # 使用 Prettier 格式化代码
 
 **OG 图片**：构建时通过 satori + sharp 自动生成，模板位于 `src/pages/og-image/[slug].png.ts`。
 
-**搜索**：Pagefind 对构建后的 `dist/` 目录建立索引，每次 `pnpm build` 后需运行 `pnpm postbuild` 更新索引。
+**搜索**：Pagefind 对构建后的 `.vercel/output/static/` 目录建立索引，`pnpm build` 后自动运行 `pnpm postbuild`。
+
+**阅读量**：`src/pages/api/views.ts` 是 on-demand API 路由，使用 `@upstash/redis` 对 `post:pv:<slug>` 执行 `INCR`；Vercel 上通过 Marketplace 连接 Upstash Redis 注入 `UPSTASH_REDIS_REST_*` 或旧的 `KV_REST_API_*`。本地 `pnpm dev` 未配置 Redis 时使用进程内计数器。
 
 ## 代码风格
 

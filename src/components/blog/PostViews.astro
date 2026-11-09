@@ -1,9 +1,10 @@
 ---
 interface Props {
 	class?: string;
+	slug: string;
 }
 
-const { class: className } = Astro.props;
+const { class: className, slug } = Astro.props;
 ---
 
 <span
@@ -33,8 +34,28 @@ const { class: className } = Astro.props;
 			stroke-linecap="round"
 			stroke-linejoin="round"></path>
 	</svg>
-	<span id="busuanzi_value_page_pv">--</span>
+	<span class="min-w-[2ch] tabular-nums" data-post-views data-slug={slug}>--</span>
 	<span>次阅读</span>
 </span>
 
-<script is:inline async src="https://busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+<script>
+	const counter = document.querySelector<HTMLElement>("[data-post-views]");
+	const slug = counter?.dataset.slug;
+
+	if (counter && slug) {
+		fetch("/api/views", {
+			method: "POST",
+			headers: { "Content-Type": "application/json" },
+			body: JSON.stringify({ slug }),
+		})
+			.then((response) => (response.ok ? response.json() : null))
+			.then((data: { views?: unknown } | null) => {
+				if (typeof data?.views === "number") {
+					counter.textContent = data.views.toLocaleString("zh-CN");
+				}
+			})
+			.catch(() => {
+				// Keep the placeholder when the counter is unavailable.
+			});
+	}
+</script>

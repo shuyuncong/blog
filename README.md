@@ -13,6 +13,7 @@
 - Satori + Resvg（文章 Open Graph 图片）
 - Pagefind（静态搜索）
 - Webmention.io（互动）
+- Upstash Redis（文章阅读量，Vercel Marketplace）
 - Vercel（部署与访问统计）
 
 ## 本地开发
@@ -26,13 +27,14 @@ pnpm dev
 
 ## 常用命令
 
-| 命令 | 说明 |
-| --- | --- |
-| `pnpm dev` | 启动开发服务器 |
-| `pnpm check` | Astro 类型与内容检查 |
-| `pnpm build` | 构建到 `dist/`，并自动执行 `postbuild` 生成 Pagefind 索引 |
-| `pnpm preview` | 预览构建产物 |
-| `pnpm format` | 使用 Prettier 格式化 |
+| 命令          | 说明                                                                      |
+| ------------- | ------------------------------------------------------------------------- |
+| `pnpm dev`    | 启动开发服务器                                                            |
+| `pnpm check`  | Astro 类型与内容检查                                                      |
+| `pnpm build`  | 构建到 `.vercel/output/static`，并自动执行 `postbuild` 生成 Pagefind 索引 |
+| `pnpm format` | 使用 Prettier 格式化                                                      |
+
+Vercel 适配器不支持 `astro preview`。需要完整本地预览（含 `/api/views`）时，使用 `npx vercel dev`；日常开发用 `pnpm dev` 即可。
 
 ## 目录结构
 
@@ -76,13 +78,22 @@ draft: false
 
 ```dotenv
 WEBMENTION_API_KEY=your-webmention-io-token
+UPSTASH_REDIS_REST_URL=your-upstash-redis-rest-url
+UPSTASH_REDIS_REST_TOKEN=your-upstash-redis-rest-token
+# 旧 Vercel KV / 已迁移存储使用下面两个变量，代码同样支持
+KV_REST_API_URL=
+KV_REST_API_TOKEN=
 ```
 
 未配置 token 时，构建会跳过 Webmention 抓取，页面不会展示互动区。
 
+文章阅读量由 `src/pages/api/views.ts` 写入 Redis。Vercel KV 已下线，现有 KV 存储已迁移到 [Upstash Redis](https://vercel.com/marketplace/upstash)：在 Vercel 项目的 Storage 中连接 Upstash Redis 后，环境变量会自动注入（新集成为 `UPSTASH_REDIS_REST_URL` / `UPSTASH_REDIS_REST_TOKEN`，旧 KV 存储为 `KV_REST_API_URL` / `KV_REST_API_TOKEN`，代码两种都支持）。本地开发可运行 `vercel env pull` 或手动填入 `.env`。
+
+生产环境未配置 Redis 时，`/api/views` 返回 503，阅读量保持 `--`；本地 `pnpm dev` 未配置 Redis 时使用进程内计数器，方便调试。
+
 ## 部署
 
-推送到 `main` 后由 Vercel 自动构建。构建命令为 `pnpm build`，`postbuild` 会在 `dist/pagefind/` 生成搜索索引。
+推送到 `main` 后由 Vercel 自动构建。构建命令为 `pnpm build`，`postbuild` 会在 `.vercel/output/static/pagefind/` 生成搜索索引。
 
 ## 字体
 
