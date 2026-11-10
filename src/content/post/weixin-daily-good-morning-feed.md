@@ -10,7 +10,7 @@ tags: ["公众号", "微信推送", "浪漫"]
 
 冬天到了，送给对象一个浪漫的礼物吧，感动对象一冬天。/狗头保命
 
-![image-20221006095557079](https://cdn.jsdelivr.net/gh/suyuncong/mdImg@master/md/image2022/202210060955306.png)
+![image-20221006095557079](https://cdn.jsdelivr.net/gh/shuyuncong/mdImg@c4686adbb8fe2e65932056907a615615e6c44f88/md/image2022/202210060955306.png)
 
 之前在某音平台上刷到了这个，那必须给对象整一个。讲真这个已经让我运行了一段时间了，只是现在才写出来。
 
@@ -31,15 +31,15 @@ tags: ["公众号", "微信推送", "浪漫"]
 
  扫码登录成功后，就会给我们生成微信公号的appid和appsecret
 
-![image-20221005182428422](https://cdn.jsdelivr.net/gh/suyuncong/mdImg@master/md/image2022/202210051824541.png)
+![image-20221005182428422](https://cdn.jsdelivr.net/gh/shuyuncong/mdImg@c4686adbb8fe2e65932056907a615615e6c44f88/md/image2022/202210051824541.png)
 
 让你的女朋友或者男朋友扫码关注一下测试号，接着ta的昵称和USER_ID就会出现在用户列表，返回回来的就是openid，在服务端由这个决定你需要推送的人。
 
-![image-20221005182502234](https://cdn.jsdelivr.net/gh/suyuncong/mdImg@master/md/image2022/202210051825295.png)
+![image-20221005182502234](https://cdn.jsdelivr.net/gh/shuyuncong/mdImg@c4686adbb8fe2e65932056907a615615e6c44f88/md/image2022/202210051825295.png)
 
 生成推送模板，在{{}}中写参数，以.DATA结尾，模板内容可以自定义
 
-![image-20221005182720733](https://cdn.jsdelivr.net/gh/suyuncong/mdImg@master/md/image2022/202210051827796.png)
+![image-20221005182720733](https://cdn.jsdelivr.net/gh/shuyuncong/mdImg@c4686adbb8fe2e65932056907a615615e6c44f88/md/image2022/202210051827796.png)
 
 拿到模板id，用户微信号id，就可以推送消息了。
 
@@ -136,11 +136,11 @@ public class Pusher {
 https://lbsyun.baidu.com/apiconsole/key#/home
 ```
 
-![image-20221005184552564](https://cdn.jsdelivr.net/gh/suyuncong/mdImg@master/md/image2022/202210051845691.png)
+![image-20221005184552564](https://cdn.jsdelivr.net/gh/shuyuncong/mdImg@c4686adbb8fe2e65932056907a615615e6c44f88/md/image2022/202210051845691.png)
 
-![image-20221005184633563](https://cdn.jsdelivr.net/gh/suyuncong/mdImg@master/md/image2022/202210051846715.png)
+![image-20221005184633563](https://cdn.jsdelivr.net/gh/shuyuncong/mdImg@c4686adbb8fe2e65932056907a615615e6c44f88/md/image2022/202210051846715.png)
 
-![image-20221005184716057](https://cdn.jsdelivr.net/gh/suyuncong/mdImg@master/md/image2022/202210051847136.png)
+![image-20221005184716057](https://cdn.jsdelivr.net/gh/shuyuncong/mdImg@c4686adbb8fe2e65932056907a615615e6c44f88/md/image2022/202210051847136.png)
 
 提交后就能获得AK了。
 
@@ -223,7 +223,7 @@ https://api.shadiao.pro/chp
 
 金句模板，简单粗暴：
 
-![image-20221005185949851](https://cdn.jsdelivr.net/gh/suyuncong/mdImg@master/md/image2022/202210051859936.png)
+![image-20221005185949851](https://cdn.jsdelivr.net/gh/shuyuncong/mdImg@c4686adbb8fe2e65932056907a615615e6c44f88/md/image2022/202210051859936.png)
 
 #### 纪念日
 
@@ -267,21 +267,21 @@ https://api.shadiao.pro/chp
 
 回到自己的仓库中，设置变量，把红色打圈的字符串按说明创建到 GitHub -> Settings -> Secrets -> Actions 中。
 
-![image-20221005194019589](https://cdn.jsdelivr.net/gh/suyuncong/mdImg@master/md/image2022/202210051940851.png)
+![image-20221005194019589](https://cdn.jsdelivr.net/gh/shuyuncong/mdImg@c4686adbb8fe2e65932056907a615615e6c44f88/md/image2022/202210051940851.png)
 
 点击上图的3，创建行为变量。
 
-![image-20221005193714683](https://cdn.jsdelivr.net/gh/suyuncong/mdImg@master/md/image2022/202210051937824.png)
+![image-20221005193714683](https://cdn.jsdelivr.net/gh/shuyuncong/mdImg@c4686adbb8fe2e65932056907a615615e6c44f88/md/image2022/202210051937824.png)
 
 重复以上操作，依次添加红圈中的行为变量，一个也不能少，格式也不能错。
 
 启用自己项目下的 Action！
 
-![30a5b1b2b06ba4a40a3d8ef01652409](https://cdn.jsdelivr.net/gh/suyuncong/mdImg@master/md/image2022/202210051932070.png)
+![30a5b1b2b06ba4a40a3d8ef01652409](https://cdn.jsdelivr.net/gh/shuyuncong/mdImg@c4686adbb8fe2e65932056907a615615e6c44f88/md/image2022/202210051932070.png)
 
 如果运行出现错误，按以下方法可以看到错误，可以去大佬的 issue 提问。
 
-![6b0da6f44e18c2bfd94910c377d13e6](https://cdn.jsdelivr.net/gh/suyuncong/mdImg@master/md/image2022/202210051932282.png)
+![6b0da6f44e18c2bfd94910c377d13e6](https://cdn.jsdelivr.net/gh/shuyuncong/mdImg@c4686adbb8fe2e65932056907a615615e6c44f88/md/image2022/202210051932282.png)
 
 启用后可以直接运行，看看女朋友的手机有没有收到推送吧！ 这个定时任务是每天早晨8点推送，如果会编程的同学可以自己自定义一些东西～
 

@@ -37,7 +37,7 @@ tags: ["NAS", "影音海报墙", "生活"]
 - **成本**：网盘会员费用 + 公网服务器服务费
 - **优点**：AList 支持挂载多种网盘，直连速度非常快，配置简单
 
-![1725805039427](https://cdn.jsdelivr.net/gh/shuyuncong0/mdImg/md/image2024/202409082217654.jpg)
+![1725805039427](https://cdn.jsdelivr.net/gh/shuyuncong/mdImg@8548eacec3c493ae64f9bff590dab9b0c190606a/md/image2024/202409082217654.jpg)
 
 
 
@@ -52,13 +52,13 @@ tags: ["NAS", "影音海报墙", "生活"]
 
 安装后，使用默认账号 `admin` 和密码 `alist` 登录后台，建议修改密码并创建新的用户以增强安全性
 
-![image-20230301101504729](https://cdn.jsdelivr.net/gh/shuyuncong0/mdImg/md/image2024/202409092114616.png)
+![image-20230301101504729](https://cdn.jsdelivr.net/gh/shuyuncong/mdImg@8548eacec3c493ae64f9bff590dab9b0c190606a/md/image2024/202409092114616.png)
 
-![image-20230301101833104](https://cdn.jsdelivr.net/gh/shuyuncong0/mdImg/md/image2024/202409092114227.png)
+![image-20230301101833104](https://cdn.jsdelivr.net/gh/shuyuncong/mdImg@8548eacec3c493ae64f9bff590dab9b0c190606a/md/image2024/202409092114227.png)
 
 
 
-![image-20230301102033029](https://cdn.jsdelivr.net/gh/shuyuncong0/mdImg/md/image2024/202409092114795.png)
+![image-20230301102033029](https://cdn.jsdelivr.net/gh/shuyuncong/mdImg@8548eacec3c493ae64f9bff590dab9b0c190606a/md/image2024/202409092114795.png)
 
 
 
@@ -66,39 +66,39 @@ tags: ["NAS", "影音海报墙", "生活"]
 
 默认的 **guest** 账号可以浏览文件，因此建议将其基本路径设置为一个空文件夹，以避免暴露文件。
 
-![image-20230301102742568](https://cdn.jsdelivr.net/gh/shuyuncong0/mdImg/md/image2024/202409092115712.png)
+![image-20230301102742568](https://cdn.jsdelivr.net/gh/shuyuncong/mdImg@8548eacec3c493ae64f9bff590dab9b0c190606a/md/image2024/202409092115712.png)
 
 ## 115 网盘配置
 
 
 
-![image-20240909214126046](https://cdn.jsdelivr.net/gh/shuyuncong0/mdImg/md/image2024/202409092141162.png)
+![image-20240909214126046](https://cdn.jsdelivr.net/gh/shuyuncong/mdImg@8548eacec3c493ae64f9bff590dab9b0c190606a/md/image2024/202409092141162.png)
 
 ### Cookie 获取
 
 使用谷歌浏览器，安装“篡改猴”扩展
 
-![Alist添加挂载115网盘超稳定的办法](https://cdn.jsdelivr.net/gh/shuyuncong0/mdImg/md/image2024/202409092125865.png)
+![Alist添加挂载115网盘超稳定的办法](https://cdn.jsdelivr.net/gh/shuyuncong/mdImg@8548eacec3c493ae64f9bff590dab9b0c190606a/md/image2024/202409092125865.png)
 
 安装成功后在“篡改猴”中搜索并安装“115不大助手”脚本
 
-![Alist添加挂载115网盘超稳定的办法](https://cdn.jsdelivr.net/gh/shuyuncong0/mdImg/md/image2024/202409092125040.png)
+![Alist添加挂载115网盘超稳定的办法](https://cdn.jsdelivr.net/gh/shuyuncong/mdImg@8548eacec3c493ae64f9bff590dab9b0c190606a/md/image2024/202409092125040.png)
 
-![Alist添加挂载115网盘超稳定的办法](https://cdn.jsdelivr.net/gh/shuyuncong0/mdImg/md/image2024/202409092125646.png)
+![Alist添加挂载115网盘超稳定的办法](https://cdn.jsdelivr.net/gh/shuyuncong/mdImg@8548eacec3c493ae64f9bff590dab9b0c190606a/md/image2024/202409092125646.png)
 
 登录 115 网盘，扫描二维码并获取 Cookie
 
-![Alist添加挂载115网盘超稳定的办法](https://cdn.jsdelivr.net/gh/shuyuncong0/mdImg/md/image2024/202409092125396.png)
+![Alist添加挂载115网盘超稳定的办法](https://cdn.jsdelivr.net/gh/shuyuncong/mdImg@8548eacec3c493ae64f9bff590dab9b0c190606a/md/image2024/202409092125396.png)
 
 扫码获取Cookie
 
-![image-20240909212935746](https://cdn.jsdelivr.net/gh/shuyuncong0/mdImg/md/image2024/202409092129873.png)
+![image-20240909212935746](https://cdn.jsdelivr.net/gh/shuyuncong/mdImg@8548eacec3c493ae64f9bff590dab9b0c190606a/md/image2024/202409092129873.png)
 
 选一个你不会第二次用到的方式，我这里使用的是安卓。
 
 将获取到的 Cookie 复制粘贴到 AList 后台，完成挂载设置。
 
-![image-20240909213209123](https://cdn.jsdelivr.net/gh/shuyuncong0/mdImg/md/image2024/202409092132313.png)
+![image-20240909213209123](https://cdn.jsdelivr.net/gh/shuyuncong/mdImg@8548eacec3c493ae64f9bff590dab9b0c190606a/md/image2024/202409092132313.png)
 
 填好 Cookie ， 在 Qrcode 源选一个你不会用到的，保存就挂载成功了。
 
@@ -118,7 +118,7 @@ tags: ["NAS", "影音海报墙", "生活"]
 
 完成后，Infuse 将会显示所有挂载的影视资源，自动生成海报墙，提供极致观影体验。
 
-![img](https://cdn.jsdelivr.net/gh/shuyuncong0/mdImg/md/image2024/202409082118020.png)
+![img](https://cdn.jsdelivr.net/gh/shuyuncong/mdImg@8548eacec3c493ae64f9bff590dab9b0c190606a/md/image2024/202409082118020.png)
 
 Infuse 不是必选项，市面上有很多替代品。目前比较常见的媒体管理软件有:
 
@@ -129,7 +129,7 @@ Infuse 不是必选项，市面上有很多替代品。目前比较常见的媒�
 
 这个是 Filmly 移动端下展示效果，还不错
 
-<img src="https://cdn.jsdelivr.net/gh/shuyuncong0/mdImg/md/image2024/202409092203935.png" alt="65101bab3abf659c5aadb53b5ffbc7c" style="zoom:40%;" />
+<img src="https://cdn.jsdelivr.net/gh/shuyuncong/mdImg@8548eacec3c493ae64f9bff590dab9b0c190606a/md/image2024/202409092203935.png" alt="65101bab3abf659c5aadb53b5ffbc7c" style="zoom:40%;" />
 
 ## 常见问题
 

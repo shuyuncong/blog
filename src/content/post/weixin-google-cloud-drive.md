@@ -7,7 +7,7 @@ tags: ["公众号", "Google Drive"]
 
 最近稍微折腾了一下emby搭建影视媒体库，个人觉得如果只是为了看视频没有必要折腾这些，如果有收藏癖，看到自己喜欢的电影电视剧搞一个emby也是可以的。由于各式各样的的原因（省电，便宜，配置高，不影响本地文件），还是rclone挂载各种网盘来折腾吧。
 
-![img](https://cdn.jsdelivr.net/gh/suyuncong/mdImg@master/md/image2022/202210161945223.png)
+![img](https://cdn.jsdelivr.net/gh/shuyuncong/mdImg@c4686adbb8fe2e65932056907a615615e6c44f88/md/image2022/202210161945223.png)
 
 这个时候就得说说Google的空间扩容了，那么如何扩充空间最划算，最安全，网上流传着各种无限共享空间又是怎么回事？某宝上的东西到底靠不靠谱？
 
@@ -17,7 +17,7 @@ tags: ["公众号", "Google Drive"]
 
 1. 直接购买
 
-![image-20221016200114814](https://cdn.jsdelivr.net/gh/suyuncong/mdImg@master/md/image2022/202210162001090.png)
+![image-20221016200114814](https://cdn.jsdelivr.net/gh/shuyuncong/mdImg@c4686adbb8fe2e65932056907a615615e6c44f88/md/image2022/202210162001090.png)
 
 通过云盘控制台底部的“购买存储”空间直接购买，可以选择100GB，200GB，2TB，这种方式不存在任何安全问题，只是相比后面的方式会比较贵，空间也比较小。如果能接受这个价格，并且空间够用，那么安安心心选择这个也不错。有人敢动你数据，你可以走法律程序了！
 
@@ -41,7 +41,7 @@ https://linuxword.com/?p=9334
 
 你去买无限网盘，然后让你提供邮箱的就是这种方式。
 
-![image-20221016202233103](https://cdn.jsdelivr.net/gh/suyuncong/mdImg@master/md/image2022/202210162022313.png)
+![image-20221016202233103](https://cdn.jsdelivr.net/gh/shuyuncong/mdImg@c4686adbb8fe2e65932056907a615615e6c44f88/md/image2022/202210162022313.png)
 
 官方介绍：
 
@@ -57,7 +57,7 @@ https://linuxword.com/?p=9334
 
 此链接自动将邮箱设为共享盘的唯一成员兼管理员。
 
-![image-20221016203426693](https://cdn.jsdelivr.net/gh/suyuncong/mdImg@master/md/image2022/202210162034937.png)
+![image-20221016203426693](https://cdn.jsdelivr.net/gh/shuyuncong/mdImg@c4686adbb8fe2e65932056907a615615e6c44f88/md/image2022/202210162034937.png)
 
 共享云端硬盘官方介绍：
 

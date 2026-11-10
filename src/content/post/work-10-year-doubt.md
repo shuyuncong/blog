@@ -25,7 +25,7 @@ tags: ["工作", "编程", "大学生", "迷茫", "课程"]
 
 以清华大学的为例：[https://www.tsinghua.edu.cn/jxjywj/bkzy2023/zxzy/29-1.pdf](https://www.tsinghua.edu.cn/jxjywj/bkzy2023/zxzy/29-1.pdf)。
 
-![1726567966704](https://cdn.jsdelivr.net/gh/shuyuncong0/mdImg/md/image2024/202409171812024.jpg)
+![1726567966704](https://cdn.jsdelivr.net/gh/shuyuncong/mdImg@8548eacec3c493ae64f9bff590dab9b0c190606a/md/image2024/202409171812024.jpg)
 
 如果单纯只学完这些课会发现还是啥也干不了，从计算机分层角度来看：
 
@@ -103,7 +103,7 @@ ACM 相对来说是含金量最高的比赛，一般三个人组队，然后在�
 
 以 [echarts](https://github.com/apache/echarts) 为例，可以看下贡献指南。
 
-![1726568278770](https://cdn.jsdelivr.net/gh/shuyuncong0/mdImg/md/image2024/202409171818630.jpg)
+![1726568278770](https://cdn.jsdelivr.net/gh/shuyuncong/mdImg@8548eacec3c493ae64f9bff590dab9b0c190606a/md/image2024/202409171818630.jpg)
 
 ## 公司项目
 
@@ -137,7 +137,7 @@ ACM 相对来说是含金量最高的比赛，一般三个人组队，然后在�
 
 最简单的就是到招聘官方网站查看。
 
-![1726568357109](https://cdn.jsdelivr.net/gh/shuyuncong0/mdImg/md/image2024/202409171819696.jpg)
+![1726568357109](https://cdn.jsdelivr.net/gh/shuyuncong/mdImg@8548eacec3c493ae64f9bff590dab9b0c190606a/md/image2024/202409171819696.jpg)
 
 大部分岗位还是业务开发，也就是开发我们日常用的各类 app 、小程序的功能迭代，会涉及到前端、后端、算法。从我个人经验来看，一个需求开发中，前端、后端、算法配比大概是 2:5:1 ，因此后端招的人数是最多的。
 

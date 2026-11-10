@@ -20,7 +20,7 @@ tags: ["博客", "blog", "Beauty", "订阅源"]
 
 我们选择 File 选项后可以下载到一个 XSL 文件，这个文件就是用来实现美化的样式文件，可以把它类比成 CSS。
 
-![RSS.Beauty official site screenshot](https://igaozp.me/images/enhance-astro-project-rss-feed-style/01.png)
+![RSS.Beauty official site screenshot](https://igaozp.me/_astro/01.4Zrrk12t_24SIfq.png)
 
 ## 在 Astro 中集成
 

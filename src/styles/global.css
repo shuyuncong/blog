@@ -201,6 +201,11 @@
 	color: var(--color-accent);
 }
 
+.prose img {
+	height: auto;
+	max-width: 100%;
+}
+
 .prose blockquote {
 	border-left-width: 0;
 }

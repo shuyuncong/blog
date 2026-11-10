@@ -48,13 +48,13 @@ tags: ["公众号", "icloud"]
 
 登录 **https://www.icloud.com/** ，开始注册苹果账号，国家和地区选择【土耳其】；推荐使用 QQ 邮箱，无需使用科学上网。
 
-![1721572344033](https://cdn.jsdelivr.net/gh/shuyuncong0/mdImg/md/image2024/202407212232831.jpg)
+![1721572344033](https://cdn.jsdelivr.net/gh/shuyuncong/mdImg@8548eacec3c493ae64f9bff590dab9b0c190606a/md/image2024/202407212232831.jpg)
 
-![1721572371076](https://cdn.jsdelivr.net/gh/shuyuncong0/mdImg/md/image2024/202407212232497.jpg)
+![1721572371076](https://cdn.jsdelivr.net/gh/shuyuncong/mdImg@8548eacec3c493ae64f9bff590dab9b0c190606a/md/image2024/202407212232497.jpg)
 
-![1721572422022](https://cdn.jsdelivr.net/gh/shuyuncong0/mdImg/md/image2024/202407212233359.jpg)
+![1721572422022](https://cdn.jsdelivr.net/gh/shuyuncong/mdImg@8548eacec3c493ae64f9bff590dab9b0c190606a/md/image2024/202407212233359.jpg)
 
-![1721572435560](https://cdn.jsdelivr.net/gh/shuyuncong0/mdImg/md/image2024/202407212234909.jpg)
+![1721572435560](https://cdn.jsdelivr.net/gh/shuyuncong/mdImg@8548eacec3c493ae64f9bff590dab9b0c190606a/md/image2024/202407212234909.jpg)
 
 注册成功后，在 **https://appleid.apple.com/** 登录刚才注册好的Apple ID；​
 
@@ -77,15 +77,15 @@ tags: ["公众号", "icloud"]
 
 完成注册后，在 https://appleid.apple.com/  登陆刚才的账号。点击左侧付款方式，再点右侧添加付款方式。
 
-![1721573057428](https://cdn.jsdelivr.net/gh/shuyuncong0/mdImg/md/image2024/202407212244561.jpg)
+![1721573057428](https://cdn.jsdelivr.net/gh/shuyuncong/mdImg@8548eacec3c493ae64f9bff590dab9b0c190606a/md/image2024/202407212244561.jpg)
 
 付款方式选择**【无】**，账单寄送地址和派送地址账单都要填[土耳其地址](https://www.meiguodizhi.com/tr-address)。
 
-![1721573130173](https://cdn.jsdelivr.net/gh/shuyuncong0/mdImg/md/image2024/202407212245182.jpg)
+![1721573130173](https://cdn.jsdelivr.net/gh/shuyuncong/mdImg@8548eacec3c493ae64f9bff590dab9b0c190606a/md/image2024/202407212245182.jpg)
 
 如
 
-![1721573326424](https://cdn.jsdelivr.net/gh/shuyuncong0/mdImg/md/image2024/202407212248201.jpg)
+![1721573326424](https://cdn.jsdelivr.net/gh/shuyuncong/mdImg@8548eacec3c493ae64f9bff590dab9b0c190606a/md/image2024/202407212248201.jpg)
 
 > Osman Kavuncu Cad（第一行）
 >
@@ -104,7 +104,7 @@ tags: ["公众号", "icloud"]
 3. 点击 **附近**，再次搜索 **餐厅**
 4. 在搜索结果中任意选一个 ，复制 地址信息
 
-![1721746474880](https://cdn.jsdelivr.net/gh/shuyuncong0/mdImg/md/image2024/202407232254804.jpg)
+![1721746474880](https://cdn.jsdelivr.net/gh/shuyuncong/mdImg@8548eacec3c493ae64f9bff590dab9b0c190606a/md/image2024/202407232254804.jpg)
 
 ```
 **请按照 国家、城市、区、街道地址、单元号的格式，翻译下面的土耳其地址：**
@@ -125,9 +125,9 @@ tags: ["公众号", "icloud"]
 
 如果地址填写的有问题，在购买AppSore 商品是，会提示弹窗
 
-![1721746546968](https://cdn.jsdelivr.net/gh/shuyuncong0/mdImg/md/image2024/202407232255989.jpg)
+![1721746546968](https://cdn.jsdelivr.net/gh/shuyuncong/mdImg@8548eacec3c493ae64f9bff590dab9b0c190606a/md/image2024/202407232255989.jpg)
 
-![1721746564171](https://cdn.jsdelivr.net/gh/shuyuncong0/mdImg/md/image2024/202407232256666.jpg)
+![1721746564171](https://cdn.jsdelivr.net/gh/shuyuncong/mdImg@8548eacec3c493ae64f9bff590dab9b0c190606a/md/image2024/202407232256666.jpg)
 
 找一台事先准备好的闲置苹果设备，登录这个刚刚注册的土耳其账号；​登录成功的话，恭喜你已经有了一个土耳其苹果账号了！
 
@@ -168,27 +168,27 @@ tags: ["公众号", "icloud"]
 
 进入网站，你会看见网站上面都是土耳其语，你可以选择【语言】调整为其他语言，然后点击【注册】按钮；
 
-![1721660022608](https://cdn.jsdelivr.net/gh/shuyuncong0/mdImg/md/image2024/202407222253061.jpg)
+![1721660022608](https://cdn.jsdelivr.net/gh/shuyuncong/mdImg@8548eacec3c493ae64f9bff590dab9b0c190606a/md/image2024/202407222253061.jpg)
 
 在注册页面一定要填好邮箱地址，和国内的手机号码，记得选+86，注册完成记得去邮箱里找邮箱验证邮件，然后才算注册成功；
 
-![1721660054534](https://cdn.jsdelivr.net/gh/shuyuncong0/mdImg/md/image2024/202407222254133.jpg)
+![1721660054534](https://cdn.jsdelivr.net/gh/shuyuncong/mdImg@8548eacec3c493ae64f9bff590dab9b0c190606a/md/image2024/202407222254133.jpg)
 
 登陆成功后，我们可以在首页账号信息的地方看到自己的姓名，AppStore 礼品卡购买入口。
 
-![1721660113803](https://cdn.jsdelivr.net/gh/shuyuncong0/mdImg/md/image2024/202407222255651.jpg)
+![1721660113803](https://cdn.jsdelivr.net/gh/shuyuncong/mdImg@8548eacec3c493ae64f9bff590dab9b0c190606a/md/image2024/202407222255651.jpg)
 
-![1721746802777](https://cdn.jsdelivr.net/gh/shuyuncong0/mdImg/md/image2024/202407232300104.jpg)
+![1721746802777](https://cdn.jsdelivr.net/gh/shuyuncong/mdImg@8548eacec3c493ae64f9bff590dab9b0c190606a/md/image2024/202407232300104.jpg)
 
 进入确认订单页面，这里会显示你要买的产品、数量，以及支付金额等信息，点击绿色支付按钮；如果第一次购买，不太放心，可以购买少量确认一下流程。1¥ == 4.48 里拉。购买25个里拉，花费5.5¥（会有手续费）。
 
-![1721660204533](https://cdn.jsdelivr.net/gh/shuyuncong0/mdImg/md/image2024/202407222256441.jpg)
+![1721660204533](https://cdn.jsdelivr.net/gh/shuyuncong/mdImg@8548eacec3c493ae64f9bff590dab9b0c190606a/md/image2024/202407222256441.jpg)
 
 订单信息录入（第一次购买时）
 
 如果你是第一次在网站购买，会弹出这个页面，让你输入账单地址，这个只会出现一次，以后就不会出现了，填好名字和地址就可以了，电话号码选中国国旗。
 
-![1721660290686](https://cdn.jsdelivr.net/gh/shuyuncong0/mdImg/md/image2024/202407222258003.jpg)
+![1721660290686](https://cdn.jsdelivr.net/gh/shuyuncong/mdImg@8548eacec3c493ae64f9bff590dab9b0c190606a/md/image2024/202407222258003.jpg)
 
 
 
@@ -200,19 +200,19 @@ tags: ["公众号", "icloud"]
 
 这里我使用的是【iyzico通道】工商科创精英 Visa 单标信用卡
 
-<img src="https://cdn.jsdelivr.net/gh/shuyuncong0/mdImg/md/image2024/202407222300788.jpg" alt="1721660418664" style="zoom:67%;" />
+<img src="https://cdn.jsdelivr.net/gh/shuyuncong/mdImg@8548eacec3c493ae64f9bff590dab9b0c190606a/md/image2024/202407222300788.jpg" alt="1721660418664" style="zoom:67%;" />
 
-![1721660430066](https://cdn.jsdelivr.net/gh/shuyuncong0/mdImg/md/image2024/202407222300717.jpg)
+![1721660430066](https://cdn.jsdelivr.net/gh/shuyuncong/mdImg@8548eacec3c493ae64f9bff590dab9b0c190606a/md/image2024/202407222300717.jpg)
 
 **找到已购买的产品**
 
 进入oyunfor网站，鼠标移到右上角的头像那里，选择第二个选项，进入我买到的产品页面
 
-![1721660454014](https://cdn.jsdelivr.net/gh/shuyuncong0/mdImg/md/image2024/202407222300223.jpg)
+![1721660454014](https://cdn.jsdelivr.net/gh/shuyuncong/mdImg@8548eacec3c493ae64f9bff590dab9b0c190606a/md/image2024/202407222300223.jpg)
 
 在页面右侧就是你买到的产品，点击展开后，就能看到一串礼品卡代码，这就是可以在苹果商店兑换服务的礼品卡号，Product Code 就是我们礼品卡的信息，这个需要保密，一旦泄漏被使用，是无法追回的。
 
-![1721660482077](https://cdn.jsdelivr.net/gh/shuyuncong0/mdImg/md/image2024/202407222301655.jpg)
+![1721660482077](https://cdn.jsdelivr.net/gh/shuyuncong/mdImg@8548eacec3c493ae64f9bff590dab9b0c190606a/md/image2024/202407222301655.jpg)
 
 当然你也可以使用咸鱼购买，但一定要擦亮眼睛，看清信用分。
 
@@ -234,7 +234,7 @@ tags: ["公众号", "icloud"]
 【设置】》【自己头像】》【iCloud】》【管理储存空间】》【更改储存空间方案】
 ```
 
-![1721660747754](https://cdn.jsdelivr.net/gh/shuyuncong0/mdImg/md/image2024/202407222305632.jpg)
+![1721660747754](https://cdn.jsdelivr.net/gh/shuyuncong/mdImg@8548eacec3c493ae64f9bff590dab9b0c190606a/md/image2024/202407222305632.jpg)
 
 ## 分享给家庭的其他成员
 
@@ -248,7 +248,7 @@ tags: ["公众号", "icloud"]
 【设置】》【头像】》【家人共享】》【iCloud+】（有的版本可能iCloud+在【订阅】里）》【停止与家人共享】
 ```
 
-![1721660795796](https://cdn.jsdelivr.net/gh/shuyuncong0/mdImg/md/image2024/202407222306747.jpg)
+![1721660795796](https://cdn.jsdelivr.net/gh/shuyuncong/mdImg@8548eacec3c493ae64f9bff590dab9b0c190606a/md/image2024/202407222306747.jpg)
 
 ### **土区账号把iCloud共享给家庭成员**
 
@@ -258,7 +258,7 @@ tags: ["公众号", "icloud"]
 
 然后，就可以把土区账号的iCloud空间分享给家庭的其他成员使用了
 
-![1721660865128](https://cdn.jsdelivr.net/gh/shuyuncong0/mdImg/md/image2024/202407222307287.jpg)
+![1721660865128](https://cdn.jsdelivr.net/gh/shuyuncong/mdImg@8548eacec3c493ae64f9bff590dab9b0c190606a/md/image2024/202407222307287.jpg)
 
 ### **其他家庭成员使用由土区账号共享的iCloud服务**
 
@@ -266,7 +266,7 @@ tags: ["公众号", "icloud"]
 
 使用国区家庭成员账号，**【设置】》【头像】》【iCloud】》【管理储存空间】》【更改储存空间方案】**，根据弹出窗口的内容判断是否已经成功使用了土区的iCloud共享；
 
-![1721660897731](https://cdn.jsdelivr.net/gh/shuyuncong0/mdImg/md/image2024/202407222308838.jpg)
+![1721660897731](https://cdn.jsdelivr.net/gh/shuyuncong/mdImg@8548eacec3c493ae64f9bff590dab9b0c190606a/md/image2024/202407222308838.jpg)
 
 ### **之前的国区家长账号，需要将已开通的国区iCloud服务降级；**
 
@@ -282,4 +282,4 @@ tags: ["公众号", "icloud"]
 
 **【设置】-【家人共享】-【订阅】**，在已共享中查看iCloud+的空间**是不是由土耳其账号提供**。
 
-![1721660945025](https://cdn.jsdelivr.net/gh/shuyuncong0/mdImg/md/image2024/202407222309010.jpg)![1721660955728](https://cdn.jsdelivr.net/gh/shuyuncong0/mdImg/md/image2024/202407222309277.jpg)
+![1721660945025](https://cdn.jsdelivr.net/gh/shuyuncong/mdImg@8548eacec3c493ae64f9bff590dab9b0c190606a/md/image2024/202407222309010.jpg)![1721660955728](https://cdn.jsdelivr.net/gh/shuyuncong/mdImg@8548eacec3c493ae64f9bff590dab9b0c190606a/md/image2024/202407222309277.jpg)

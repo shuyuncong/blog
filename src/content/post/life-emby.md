@@ -41,7 +41,7 @@ Emby 是一个主从式架构的媒体服务器软件，包含服务端和客户
 
 *   登录Telegram的网络
 
-![remove.photos-cleanup](https://cdn.jsdelivr.net/gh/shuyuncong0/mdImg/md/image2024/202409182148171.jpg)
+![remove.photos-cleanup](https://cdn.jsdelivr.net/gh/shuyuncong/mdImg@8548eacec3c493ae64f9bff590dab9b0c190606a/md/image2024/202409182148171.jpg)
 
 Appstore中的Telegram
 
@@ -64,7 +64,7 @@ Appstore中的Telegram
 - 频道链接：https://t.me/embypub
 - 群组链接：https://t.me/EmbyPublic
 
-![image-20240918215326331](https://cdn.jsdelivr.net/gh/shuyuncong0/mdImg/md/image2024/202409182153773.png)
+![image-20240918215326331](https://cdn.jsdelivr.net/gh/shuyuncong/mdImg@8548eacec3c493ae64f9bff590dab9b0c190606a/md/image2024/202409182153773.png)
 
 
 
@@ -97,7 +97,7 @@ Appstore中的Telegram
 - 频道链接：https://t.me/MisakaF_Emby
 - 群组链接：https://t.me/MisakaF_Emby_chat1
 
-![image-20240918221813233](https://cdn.jsdelivr.net/gh/shuyuncong0/mdImg/md/image2024/202409182218578.png)
+![image-20240918221813233](https://cdn.jsdelivr.net/gh/shuyuncong/mdImg@8548eacec3c493ae64f9bff590dab9b0c190606a/md/image2024/202409182218578.png)
 
 
 
@@ -110,7 +110,7 @@ Appstore中的Telegram
 - 频道链接：https://t.me/FreeEmbyChannel
 - 群组链接：https://t.me/FreeEmby
 
-![image-20240918222622013](https://cdn.jsdelivr.net/gh/shuyuncong0/mdImg/md/image2024/202409182226370.png)
+![image-20240918222622013](https://cdn.jsdelivr.net/gh/shuyuncong/mdImg@8548eacec3c493ae64f9bff590dab9b0c190606a/md/image2024/202409182226370.png)
 
 
 
@@ -134,7 +134,7 @@ Appstore中的Telegram
   2. 保号：聊天获得积分，然后续期即可。
 - 频道链接：https://t.me/EmbyClub
 
-![image-20240918222538666](https://cdn.jsdelivr.net/gh/shuyuncong0/mdImg/md/image2024/202409182225931.png)
+![image-20240918222538666](https://cdn.jsdelivr.net/gh/shuyuncong/mdImg@8548eacec3c493ae64f9bff590dab9b0c190606a/md/image2024/202409182225931.png)
 
 
 
@@ -152,7 +152,7 @@ Appstore中的Telegram
 用户名：ghost
 密码：ghost
 
-![image-20240918223455419](https://cdn.jsdelivr.net/gh/shuyuncong0/mdImg/md/image2024/202409182234096.png)
+![image-20240918223455419](https://cdn.jsdelivr.net/gh/shuyuncong/mdImg@8548eacec3c493ae64f9bff590dab9b0c190606a/md/image2024/202409182234096.png)
 
 
 
@@ -162,7 +162,7 @@ Appstore中的Telegram
 
 密码：plusisbest
 
-![image-20240918223515799](https://cdn.jsdelivr.net/gh/shuyuncong0/mdImg/md/image2024/202409182235331.png)
+![image-20240918223515799](https://cdn.jsdelivr.net/gh/shuyuncong/mdImg@8548eacec3c493ae64f9bff590dab9b0c190606a/md/image2024/202409182235331.png)
 
 
 

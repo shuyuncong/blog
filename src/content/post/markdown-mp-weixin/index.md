@@ -28,37 +28,37 @@ draft: true
 
 首先要在GitHub创建一个用作图床的仓库，我的仓库名为 mdImg。
 
-![image-20220701215546695](https://cdn.jsdelivr.net/gh/suyuncong/mdImg/md/image/202208162242367.png)
+![image-20220701215546695](https://cdn.jsdelivr.net/gh/shuyuncong/mdImg@c4686adbb8fe2e65932056907a615615e6c44f88/md/image/202208162242367.png)
 
 填写相关信息
 
-![image-20221005153551847](https://cdn.jsdelivr.net/gh/suyuncong/mdImg@master/md/image2022/202210051535971.png)
+![image-20221005153551847](https://cdn.jsdelivr.net/gh/shuyuncong/mdImg@c4686adbb8fe2e65932056907a615615e6c44f88/md/image2022/202210051535971.png)
 
 创建一个密匙来实现远程图片上传，点头像，选setting
 
-![image-20220701222032296](https://cdn.jsdelivr.net/gh/suyuncong/mdImg/md/image/202208162242236.png)
+![image-20220701222032296](https://cdn.jsdelivr.net/gh/shuyuncong/mdImg@c4686adbb8fe2e65932056907a615615e6c44f88/md/image/202208162242236.png)
 
 点Developer settings
 
-![image-20220701222200095](https://cdn.jsdelivr.net/gh/suyuncong/mdImg/md/image/202208162242394.png)
+![image-20220701222200095](https://cdn.jsdelivr.net/gh/shuyuncong/mdImg@c4686adbb8fe2e65932056907a615615e6c44f88/md/image/202208162242394.png)
 
 选择`Personal access tokens`，并且选择`Generate new toekn`创建一个新的密匙
 
-![image-20221005120048091](https://cdn.jsdelivr.net/gh/suyuncong/mdImg@master/md/image2022/202210051200175.png)
+![image-20221005120048091](https://cdn.jsdelivr.net/gh/shuyuncong/mdImg@c4686adbb8fe2e65932056907a615615e6c44f88/md/image2022/202210051200175.png)
 
 输入GitHub密码之后，进入token的配置页面，配置如下，最后点最下方绿色按钮创建
 
-![在这里插入图片描述](https://cdn.jsdelivr.net/gh/suyuncong/mdImg/md/image/202208162242857.png)
+![在这里插入图片描述](https://cdn.jsdelivr.net/gh/shuyuncong/mdImg@c4686adbb8fe2e65932056907a615615e6c44f88/md/image/202208162242857.png)
 
 把token保存一下，我写到了备忘录里。因为这个token只会显示一次。
 
-![image-20220701222919186](https://cdn.jsdelivr.net/gh/suyuncong/mdImg/md/image/202208162242224.png)
+![image-20220701222919186](https://cdn.jsdelivr.net/gh/shuyuncong/mdImg@c4686adbb8fe2e65932056907a615615e6c44f88/md/image/202208162242224.png)
 
 #### PicGo 配置过程
 
 打开picgo，找到GitHub图床，进行如下配置，并设置为默认图床
 
-![image-20221005113337968](https://cdn.jsdelivr.net/gh/suyuncong/mdImg/md/image2022/202210051133055.png)
+![image-20221005113337968](https://cdn.jsdelivr.net/gh/shuyuncong/mdImg@c4686adbb8fe2e65932056907a615615e6c44f88/md/image2022/202210051133055.png)
 
 设定自定义域名：不填写，加载速度会有点慢，可能会导致你typora的显示很慢甚至显示不出来，但是在博客转存的时候好像没什么问题；CDN加速：`https://cdn.jsdelivr.net/gh/GitHub账户名/仓库名`，如果这个加速不可以，可以尝试在链接末尾添加**@master**，`https://cdn.jsdelivr.net/gh/GitHub账户名/仓库名@mater`大家可以试试。
 
@@ -66,7 +66,7 @@ PicGo 设置
 
 在PicGo设置中勾选 `时间戳重命名` 否则上传同名文件PicGo会报错
 
-![image-20220701224339922](https://cdn.jsdelivr.net/gh/suyuncong/mdImg/md/image/202208162243103.png)
+![image-20220701224339922](https://cdn.jsdelivr.net/gh/shuyuncong/mdImg@c4686adbb8fe2e65932056907a615615e6c44f88/md/image/202208162243103.png)
 
 #### Typora 配置
 
@@ -74,10 +74,10 @@ PicGo 设置
 
 在图像设置里进行设置，然后点验证图片上传
 
-![image-20220701224625068](https://cdn.jsdelivr.net/gh/suyuncong/mdImg/md/image/202208162243505.png)
+![image-20220701224625068](https://cdn.jsdelivr.net/gh/shuyuncong/mdImg@c4686adbb8fe2e65932056907a615615e6c44f88/md/image/202208162243505.png)
 
 点击验证图片上传选项，出现下图说明上传成功
 
-![image-20220701230008834](https://cdn.jsdelivr.net/gh/suyuncong/mdImg/md/image/202208162243181.png)
+![image-20220701230008834](https://cdn.jsdelivr.net/gh/shuyuncong/mdImg@c4686adbb8fe2e65932056907a615615e6c44f88/md/image/202208162243181.png)
 
 祝你好运！

@@ -9,25 +9,25 @@ tags: ["公众号", "小程序"]
 
 1、在微信公众平台官网首页（mp.weixin.qq.com）点击右上角的“立即注册”按钮。
 
-![62778860de90b90c887f99ff5624d194.png (1920×937)](https://cdn.jsdelivr.net/gh/suyuncong/mdImg/md/image2022/202210041129882.png)
+![62778860de90b90c887f99ff5624d194.png (1920×937)](https://cdn.jsdelivr.net/gh/shuyuncong/mdImg@c4686adbb8fe2e65932056907a615615e6c44f88/md/image2022/202210041129882.png)
 
 选择注册的账号类型
 
 选择“小程序”，点击“查看类型区别”可查看不同类型账号的区别和优势。
 
-![img](https://cdn.jsdelivr.net/gh/suyuncong/mdImg/md/image2022/202210041129567.png)
+![img](https://cdn.jsdelivr.net/gh/shuyuncong/mdImg@c4686adbb8fe2e65932056907a615615e6c44f88/md/image2022/202210041129567.png)
 
 注册注意:需使用未注册过的邮箱。 
 
-![image-20221004161919798](https://cdn.jsdelivr.net/gh/suyuncong/mdImg/md/image2022/202210041619986.png)
+![image-20221004161919798](https://cdn.jsdelivr.net/gh/shuyuncong/mdImg@c4686adbb8fe2e65932056907a615615e6c44f88/md/image2022/202210041619986.png)
 
 提交注册信息后，页面会跳转到“**邮箱激活**”，登录自己的邮箱去激活。
 
-![img](https://cdn.jsdelivr.net/gh/suyuncong/mdImg/md/image2022/202210041620034.png)
+![img](https://cdn.jsdelivr.net/gh/shuyuncong/mdImg@c4686adbb8fe2e65932056907a615615e6c44f88/md/image2022/202210041620034.png)
 
 注册完毕后需要确认主体，主体确认后不可更改。
 
-![img](https://cdn.jsdelivr.net/gh/suyuncong/mdImg/md/image2022/202210041621145.jpeg)
+![img](https://cdn.jsdelivr.net/gh/shuyuncong/mdImg@c4686adbb8fe2e65932056907a615615e6c44f88/md/image2022/202210041621145.jpeg)
 
 以下操作以“个人”**主体类型**为例：选择“个人”填写主体信息登记，按照上页面提示**如实填写**，必须实名填写。
 
@@ -35,13 +35,13 @@ tags: ["公众号", "小程序"]
 
 
 
-![img](https://cdn.jsdelivr.net/gh/suyuncong/mdImg/md/image2022/202210041624734.png)
+![img](https://cdn.jsdelivr.net/gh/shuyuncong/mdImg@c4686adbb8fe2e65932056907a615615e6c44f88/md/image2022/202210041624734.png)
 
 点击确定后，它会提示提交成功，进入小程序。
 
 
 
-![img](https://cdn.jsdelivr.net/gh/suyuncong/mdImg/md/image2022/202210041624680.png)
+![img](https://cdn.jsdelivr.net/gh/shuyuncong/mdImg@c4686adbb8fe2e65932056907a615615e6c44f88/md/image2022/202210041624680.png)
 
 
 
@@ -55,7 +55,7 @@ tags: ["公众号", "小程序"]
 
 点击“**添加开发者**”增加小程序的项目成员，配置成员的权限，由成员管理小程序，但是管理员人只有一人。设置-开发者设置，保存**APPID**、**APPSECRET。**
 
-![image-20221004162737417](https://cdn.jsdelivr.net/gh/suyuncong/mdImg/md/image2022/202210041627521.png)
+![image-20221004162737417](https://cdn.jsdelivr.net/gh/shuyuncong/mdImg@c4686adbb8fe2e65932056907a615615e6c44f88/md/image2022/202210041627521.png)
 
 #### 小程序应用开发
 
@@ -63,21 +63,21 @@ tags: ["公众号", "小程序"]
 
 下载**微信开发者工具**并登录，开发者工具上输入APPID（即微信小程序ID）、项目名称（填写字母） 、项目目录（选择代码包解压后的首目录）。
 
-![image-20221004163539738](https://cdn.jsdelivr.net/gh/suyuncong/mdImg/md/image2022/202210041635874.png)
+![image-20221004163539738](https://cdn.jsdelivr.net/gh/shuyuncong/mdImg@c4686adbb8fe2e65932056907a615615e6c44f88/md/image2022/202210041635874.png)
 
 对应资源包很简单，可以在官网上学习一下教程；也可以直接后台找我要一份。
 
 点击刚刚上传的项目，进入调试界面，确认体验是否正常。
 
-![image-20221004164055597](https://cdn.jsdelivr.net/gh/suyuncong/mdImg/md/image2022/202210041640755.png)
+![image-20221004164055597](https://cdn.jsdelivr.net/gh/shuyuncong/mdImg@c4686adbb8fe2e65932056907a615615e6c44f88/md/image2022/202210041640755.png)
 
 确认无误，填写版本号及项目备注，点击上传。
 
-![image-20221004164227597](https://cdn.jsdelivr.net/gh/suyuncong/mdImg/md/image2022/202210041642678.png)
+![image-20221004164227597](https://cdn.jsdelivr.net/gh/shuyuncong/mdImg@c4686adbb8fe2e65932056907a615615e6c44f88/md/image2022/202210041642678.png)
 
 最后返回腾讯小程序后台，点击“提交审核”，等审核通过以后，即可发布上线。
 
-![image-20221004164303075](https://cdn.jsdelivr.net/gh/suyuncong/mdImg/md/image2022/202210041643463.png)
+![image-20221004164303075](https://cdn.jsdelivr.net/gh/shuyuncong/mdImg@c4686adbb8fe2e65932056907a615615e6c44f88/md/image2022/202210041643463.png)
 
 如果不做更深入的开发或者自己尝试修改，到这儿就可以结束了。
 
@@ -94,7 +94,7 @@ json 主要以两侧的 { } 为代表，在 json 文件中，我们一般会通�
 修改编辑 json文件时需要严格遵守相关的数据格式（比如不能添加注释，不能使用单引号），否则会编译失败。
 ```
 
-![image-20221004171842362](https://cdn.jsdelivr.net/gh/suyuncong/mdImg/md/image2022/202210041718518.png)
+![image-20221004171842362](https://cdn.jsdelivr.net/gh/shuyuncong/mdImg@c4686adbb8fe2e65932056907a615615e6c44f88/md/image2022/202210041718518.png)
 
 在 `app.json` 文件中，会包括当前小程序的全局配置，也是在这里对小程序的所有页面路径，界面样式等信息进行配置的综合入口。
 
@@ -104,7 +104,7 @@ pages 字段是配置文件中**唯一必须**的字段。所有小程序中的�
 
 ##### 创建页面
 
-![image-20221004173649422](https://cdn.jsdelivr.net/gh/suyuncong/mdImg/md/image2022/202210041736576.png)
+![image-20221004173649422](https://cdn.jsdelivr.net/gh/shuyuncong/mdImg@c4686adbb8fe2e65932056907a615615e6c44f88/md/image2022/202210041736576.png)
 
 在创建页面时，也不需要单独在新增的目录中新增 wxss，wxml，js 和 json 文件，我们仅右键pages，并点击「创建 page」输入页面名称，即可自动完成新目录的创建。
 
@@ -114,7 +114,7 @@ pages 字段是配置文件中**唯一必须**的字段。所有小程序中的�
 
 在一个小程序中，如果只有界面展示是完全不够的，还需要增加一些用户交互的响应内容，而这些与用户交互相关的脚本（如响应用户的点击、获取用户的位置等等）则需要通过 JS 脚本文件来进行处理。例如我们的“提交”按钮。
 
-![image-20221004174104272](https://cdn.jsdelivr.net/gh/suyuncong/mdImg/md/image2022/202210041741503.png)
+![image-20221004174104272](https://cdn.jsdelivr.net/gh/shuyuncong/mdImg@c4686adbb8fe2e65932056907a615615e6c44f88/md/image2022/202210041741503.png)
 
 在 index.wxml 中，我们增加表单的提交事件submit。
 
@@ -160,7 +160,7 @@ Page({
 
 自此，我们的基本功能就有了，不放心的小伙伴可以真机调试一波。
 
-![image-20221004174954304](https://cdn.jsdelivr.net/gh/suyuncong/mdImg/md/image2022/202210041749413.png)
+![image-20221004174954304](https://cdn.jsdelivr.net/gh/shuyuncong/mdImg@c4686adbb8fe2e65932056907a615615e6c44f88/md/image2022/202210041749413.png)
 
 剩下的，点击上传，提交审核就可以了。
 

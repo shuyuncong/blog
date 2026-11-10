@@ -33,14 +33,14 @@ IDEA 作为越来越多程序员使用的开发工具，平时的代码注释也
 
 模版配置示例如下:
 
-![image-20240803201845675](https://cdn.jsdelivr.net/gh/shuyuncong0/mdImg/md/image2024/202408032018796.png)
+![image-20240803201845675](https://cdn.jsdelivr.net/gh/shuyuncong/mdImg@8548eacec3c493ae64f9bff590dab9b0c190606a/md/image2024/202408032018796.png)
 
 
 设置好后每次创建class文件会弹两次窗口，一次是文件命名，一次是类描述
 
 实际生成效果：
 
-![image-20240803202012976](https://cdn.jsdelivr.net/gh/shuyuncong0/mdImg/md/image2024/202408032020024.png)
+![image-20240803202012976](https://cdn.jsdelivr.net/gh/shuyuncong/mdImg@8548eacec3c493ae64f9bff590dab9b0c190606a/md/image2024/202408032020024.png)
 
 ## 方法模板
 
@@ -52,7 +52,7 @@ IDEA 可以很简单的自定义类的注释模板，但是对于自定义方法
 
 2、再次点击右上角+号在该组中新建自定义方法注释
 
-![image-20240803202932520](https://cdn.jsdelivr.net/gh/shuyuncong0/mdImg/md/image2024/202408032029594.png)
+![image-20240803202932520](https://cdn.jsdelivr.net/gh/shuyuncong/mdImg@8548eacec3c493ae64f9bff590dab9b0c190606a/md/image2024/202408032029594.png)
 
 新建Template Group，名字可以随便取， 我这里就叫MyGroup，然后创建Live Template
 　
@@ -77,7 +77,7 @@ IDEA 可以很简单的自定义类的注释模板，但是对于自定义方法
 
 请按照下图说标序号顺序进行配置，
 
-![image-20240803203543489](https://cdn.jsdelivr.net/gh/shuyuncong0/mdImg/md/image2024/202408032035574.png)
+![image-20240803203543489](https://cdn.jsdelivr.net/gh/shuyuncong/mdImg@8548eacec3c493ae64f9bff590dab9b0c190606a/md/image2024/202408032035574.png)
 
 
 
@@ -101,13 +101,13 @@ groovyScript("def result=\"${_1}\"; if(result == \"void\"){return \"\";}else{ret
 
 我主要写Java，那就在这里勾选Java类型就好了。
 
-![image-20240803204007112](https://cdn.jsdelivr.net/gh/shuyuncong0/mdImg/md/image2024/202408032040181.png)
+![image-20240803204007112](https://cdn.jsdelivr.net/gh/shuyuncong/mdImg@8548eacec3c493ae64f9bff590dab9b0c190606a/md/image2024/202408032040181.png)
 
 ### 测试效果
 
 点击OK就可以完成配置，以上就配置完成。使用的时候，先创建一个方法，然后在方法外上一行中输入 /** 点击 Enter 键，就自动生成了对应的注释，最终效果如下：
 
-![image-20240803204124547](https://cdn.jsdelivr.net/gh/shuyuncong0/mdImg/md/image2024/202408032041617.png)
+![image-20240803204124547](https://cdn.jsdelivr.net/gh/shuyuncong/mdImg@8548eacec3c493ae64f9bff590dab9b0c190606a/md/image2024/202408032041617.png)
 
 **生成注释后报Wrong tag 'Description’解决方法**
 将自己定义的标签加入到这里就好了，不过手动点击黄色的tag，idea也会自动机加入到这里，我添加到这里的标签如下：
@@ -116,7 +116,7 @@ groovyScript("def result=\"${_1}\"; if(result == \"void\"){return \"\";}else{ret
 Description:,Version:,CreateTime:,Auther:,param,param:,description:,date:,
 ```
 
-![1722688938524](https://cdn.jsdelivr.net/gh/shuyuncong0/mdImg/md/image2024/202408032042862.jpg)
+![1722688938524](https://cdn.jsdelivr.net/gh/shuyuncong/mdImg@8548eacec3c493ae64f9bff590dab9b0c190606a/md/image2024/202408032042862.jpg)
 
 
 

@@ -21,7 +21,7 @@ tags: ["工作", "入职", "环境"]
 
 简历我使用的是 [木及简历]( https://www.mujicv.com/) ，可以适当美化。简历模板和内容在这儿不过多阐述。
 
-![简历](https://cdn.jsdelivr.net/gh/shuyuncong0/mdImg/md/image2024/202408032204773.png)
+![简历](https://cdn.jsdelivr.net/gh/shuyuncong/mdImg@8548eacec3c493ae64f9bff590dab9b0c190606a/md/image2024/202408032204773.png)
 
 
 
