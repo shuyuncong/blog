@@ -83,6 +83,7 @@ const isCurrent = (path: string) =>
 	class MobileNavBtn extends HTMLElement {
 		private controller = new AbortController();
 		private headerEl: HTMLElement;
+		private menuEl: HTMLElement;
 		private menuOpen = false;
 		private mobileButtonEl: HTMLButtonElement;
 
@@ -92,7 +93,9 @@ const isCurrent = (path: string) =>
 			this.mobileButtonEl.setAttribute("aria-expanded", open.toString());
 			this.mobileButtonEl.setAttribute("aria-label", open ? "关闭主菜单" : "打开主菜单");
 
-			if (!open && focusButton) {
+			if (open) {
+				this.menuEl.querySelector<HTMLAnchorElement>("a")?.focus();
+			} else if (focusButton) {
 				this.mobileButtonEl.focus();
 			}
 		};
@@ -116,6 +119,7 @@ const isCurrent = (path: string) =>
 		constructor() {
 			super();
 			this.headerEl = document.getElementById("main-header")!;
+			this.menuEl = document.getElementById("navigation-menu")!;
 			this.mobileButtonEl = this.querySelector("button") as HTMLButtonElement;
 
 			this.mobileButtonEl.addEventListener("click", this.toggleMobileMenu, {
