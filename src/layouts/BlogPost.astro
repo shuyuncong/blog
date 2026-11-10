@@ -5,6 +5,7 @@ import { render } from "astro:content";
 import BlogHero from "@/components/blog/Hero.astro";
 import TOC from "@/components/blog/TOC.astro";
 import WebMentions from "@/components/blog/webmentions/index.astro";
+import { siteConfig } from "@/site-config";
 
 import BaseLayout from "./Base.astro";
 
@@ -21,9 +22,69 @@ const socialImage = ogImage ?? `/og-image/${slug}.png`;
 const articleDate = publishDate.toISOString();
 const modifiedDate = updatedDate?.toISOString();
 const { headings } = await render(post);
+
+const canonicalUrl = new URL(Astro.url.pathname, Astro.site).href;
+const socialImageUrl = new URL(socialImage, Astro.site).href;
+const articleJsonLd = {
+	"@context": "https://schema.org",
+	"@type": "BlogPosting",
+	author: {
+		"@type": "Person",
+		name: siteConfig.author,
+		url: new URL("/about/", Astro.site).href,
+	},
+	datePublished: articleDate,
+	description,
+	headline: title,
+	image: socialImageUrl,
+	inLanguage: siteConfig.lang,
+	mainEntityOfPage: {
+		"@type": "WebPage",
+		"@id": canonicalUrl,
+	},
+	publisher: {
+		"@type": "Person",
+		name: siteConfig.author,
+	},
+	...(modifiedDate ? { dateModified: modifiedDate } : {}),
+	...(post.data.tags.length ? { keywords: post.data.tags.join(", ") } : {}),
+};
+const breadcrumbJsonLd = {
+	"@context": "https://schema.org",
+	"@type": "BreadcrumbList",
+	itemListElement: [
+		{
+			"@type": "ListItem",
+			item: new URL("/", Astro.site).href,
+			name: "首页",
+			position: 1,
+		},
+		{
+			"@type": "ListItem",
+			item: new URL("/posts/", Astro.site).href,
+			name: "博客",
+			position: 2,
+		},
+		{
+			"@type": "ListItem",
+			item: canonicalUrl,
+			name: title,
+			position: 3,
+		},
+	],
+};
 ---
 
-<BaseLayout meta={{ articleDate, description, modifiedDate, ogImage: socialImage, title }}>
+<BaseLayout
+	meta={{
+		articleDate,
+		description,
+		jsonLd: [articleJsonLd, breadcrumbJsonLd],
+		modifiedDate,
+		ogImage: socialImage,
+		title,
+	}}
+>
 	<div class="gap-x-10 lg:flex lg:items-start">
 		{!!headings.length && <TOC headings={headings} />}
 		<article class="flex-grow break-words" data-pagefind-body>
@@ -68,7 +129,11 @@ const { headings } = await render(post);
 	}
 
 	scrollBtn.addEventListener("click", () => {
-		document.documentElement.scrollTo({ behavior: "smooth", top: 0 });
+		const reduceMotion = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+		document.documentElement.scrollTo({
+			behavior: reduceMotion ? "auto" : "smooth",
+			top: 0,
+		});
 	});
 
 	const observer = new IntersectionObserver(callback);

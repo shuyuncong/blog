@@ -24,7 +24,7 @@
 		--theme-accent: 203deg 11% 15%;
 		--theme-accent-1: 203deg 11% 15%;
 		--theme-accent-2: 0deg 0% 7%;
-		--theme-quote: 189deg 2% 56%;
+		--theme-quote: 189deg 20% 40%;
 	}
 
 	:root[data-theme="dark"] {
@@ -257,4 +257,15 @@
 .prose-sm code {
 	font-size: 0.875rem;
 	font-weight: 400;
+}
+
+@media (prefers-reduced-motion: reduce) {
+	html {
+		scroll-behavior: auto;
+	}
+
+	.glowing,
+	.glowing span {
+		animation: none !important;
+	}
 }

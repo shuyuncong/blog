@@ -24,6 +24,7 @@ export interface PaginationLink {
 export interface SiteMeta {
 	articleDate?: string | undefined;
 	description?: string;
+	jsonLd?: Record<string, unknown> | Record<string, unknown>[] | undefined;
 	modifiedDate?: string | undefined;
 	ogImage?: string | undefined;
 	title: string;

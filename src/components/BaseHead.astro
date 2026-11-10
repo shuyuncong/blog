@@ -7,12 +7,31 @@ import "../styles/global.css";
 
 type Props = SiteMeta;
 
-const { articleDate, description, modifiedDate, ogImage, title } = Astro.props;
+const { articleDate, description, jsonLd, modifiedDate, ogImage, title } = Astro.props;
 
 const titleSeparator = "•";
 const siteTitle = `${title} ${titleSeparator} ${siteConfig.title}`;
 const canonicalURL = new URL(Astro.url.pathname, Astro.site);
 const socialImageURL = new URL(ogImage ? ogImage : "/social-card.png", Astro.url).href;
+
+const websiteJsonLd = {
+	"@context": "https://schema.org",
+	"@type": "WebSite",
+	author: {
+		"@type": "Person",
+		name: siteConfig.author,
+		url: new URL("/about/", Astro.site).href,
+	},
+	description: siteConfig.description,
+	inLanguage: siteConfig.lang,
+	name: siteConfig.title,
+	url: new URL("/", Astro.site).href,
+};
+
+const structuredData = [
+	websiteJsonLd,
+	...(jsonLd ? (Array.isArray(jsonLd) ? jsonLd : [jsonLd]) : []),
+];
 ---
 
 <meta charset="utf-8" />
@@ -64,17 +83,27 @@ const socialImageURL = new URL(ogImage ? ogImage : "/social-card.png", Astro.url
 <meta content={description} name="twitter:description" />
 <meta content={socialImageURL} name="twitter:image" />
 
-<!-- Google tag (gtag.js) -->
-<script async is:inline src="https://www.googletagmanager.com/gtag/js?id=G-MJYKGPVKY1"></script>
-<script is:inline>
-	window.dataLayer = window.dataLayer || [];
-	function gtag() {
-		dataLayer.push(arguments);
-	}
-	gtag("js", new Date());
+{
+	import.meta.env.PROD && (
+		<Fragment>
+			{/* Google tag (gtag.js) */}
+			<script
+				async
+				is:inline
+				src="https://www.googletagmanager.com/gtag/js?id=G-MJYKGPVKY1"
+			/>
+			<script is:inline>
+				window.dataLayer = window.dataLayer || [];
+				function gtag() {
+					dataLayer.push(arguments);
+				}
+				gtag("js", new Date());
 
-	gtag("config", "G-MJYKGPVKY1");
-</script>
+				gtag("config", "G-MJYKGPVKY1");
+			</script>
+		</Fragment>
+	)
+}
 
 {/* Sitemap */}
 <link href="/sitemap-index.xml" rel="sitemap" />
@@ -95,3 +124,8 @@ const socialImageURL = new URL(ogImage ? ogImage : "/social-card.png", Astro.url
 }
 
 <meta content={Astro.generator} name="generator" />
+
+<script
+	type="application/ld+json"
+	set:html={JSON.stringify(structuredData).replace(/</g, "\\u003c")}
+/>

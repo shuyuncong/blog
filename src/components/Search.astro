@@ -6,12 +6,13 @@ import "@pagefind/default-ui/css/ui.css";
 
 <site-search class="ms-auto" id="search">
 	<button
+		aria-label="搜索"
 		class="flex h-9 w-9 items-center justify-center rounded-md ring-zinc-400 transition-all hover:ring-2"
 		data-open-modal
 		disabled
 	>
 		<svg
-			aria-label="搜索"
+			aria-hidden="true"
 			class="h-7 w-7"
 			fill="none"
 			height="16"
@@ -40,8 +41,8 @@ import "@pagefind/default-ui/css/ui.css";
 				import.meta.env.DEV ? (
 					<div class="mx-auto text-center">
 						<p>
-							Search is only available in production builds. <br />
-							Try building and previewing the site to test it out locally.
+							搜索仅在正式构建中可用。<br />
+							请先构建站点并在本地预览测试。
 						</p>
 					</div>
 				) : (
@@ -60,6 +61,7 @@ import "@pagefind/default-ui/css/ui.css";
 		private dialog: HTMLDialogElement;
 		private dialogFrame: HTMLDivElement;
 		private openBtn: HTMLButtonElement;
+		private pagefindReady: Promise<void> | null = null;
 
 		closeModal = () => {
 			if (this.dialog.open) {
@@ -81,18 +83,73 @@ import "@pagefind/default-ui/css/ui.css";
 		};
 
 		onWindowKeydown = (e: KeyboardEvent) => {
-			// check if it's the / key
-			if (e.key === "/" && !this.dialog.open) {
-				this.openModal();
+			const target = e.target as HTMLElement | null;
+			const isTyping =
+				target?.tagName === "INPUT" ||
+				target?.tagName === "TEXTAREA" ||
+				target?.isContentEditable === true;
+
+			// Open on "/" unless the user is typing or using a modifier shortcut.
+			if (
+				e.key === "/" &&
+				!this.dialog.open &&
+				!isTyping &&
+				!e.metaKey &&
+				!e.ctrlKey &&
+				!e.altKey
+			) {
+				void this.openModal();
 				e.preventDefault();
 			}
 		};
 
-		openModal = (event?: MouseEvent) => {
+		loadPagefind = () => {
+			if (import.meta.env.DEV) return Promise.resolve();
+			if (this.pagefindReady) return this.pagefindReady;
+
+			this.pagefindReady = import("@pagefind/default-ui")
+				.then(({ PagefindUI }) => {
+					new PagefindUI({
+						baseUrl: import.meta.env.BASE_URL,
+						bundlePath: import.meta.env.BASE_URL.replace(/\/$/, "") + "/pagefind/",
+						element: "#cactus__search",
+						showImages: false,
+						showSubResults: true,
+						translations: {
+							alt_search: "没有找到 [SEARCH_TERM] 的结果。显示 [DIFFERENT_TERM] 的结果：",
+							clear_search: "清除",
+							filters_label: "筛选",
+							load_more: "加载更多结果",
+							many_results: "[COUNT] 个 [SEARCH_TERM] 的结果",
+							one_result: "[COUNT] 个 [SEARCH_TERM] 的结果",
+							placeholder: "搜索",
+							search_label: "搜索本站",
+							search_suggestion:
+								"没有找到 [SEARCH_TERM] 的结果。尝试以下搜索之一：",
+							searching: "正在搜索 [SEARCH_TERM]…",
+							zero_results: "没有找到 [SEARCH_TERM] 的结果",
+						},
+					});
+				})
+				.catch((error) => {
+					console.error("[search] Failed to load Pagefind UI:", error);
+					const container = this.querySelector("#cactus__search");
+					if (container) {
+						container.textContent = "搜索暂时不可用，请稍后重试。";
+					}
+					// Allow a later open to retry.
+					this.pagefindReady = null;
+				});
+
+			return this.pagefindReady;
+		};
+
+		openModal = async (event?: MouseEvent) => {
 			this.dialog.showModal();
-			this.querySelector("input")?.focus();
 			event?.stopPropagation();
 			window.addEventListener("click", this.onWindowClick);
+			await this.loadPagefind();
+			this.querySelector("input")?.focus();
 		};
 
 		constructor() {
@@ -105,38 +162,14 @@ import "@pagefind/default-ui/css/ui.css";
 			this.openBtn.addEventListener("click", this.openModal);
 			this.openBtn.disabled = false;
 			this.closeBtn.addEventListener("click", this.closeModal);
+			this.dialog.addEventListener("close", () => {
+				window.removeEventListener("click", this.onWindowClick);
+			});
 		}
 
 		connectedCallback() {
 			// Listen for keyboard shortcut
 			window.addEventListener("keydown", this.onWindowKeydown);
-
-			// only add pagefind in production
-			if (import.meta.env.DEV) return;
-			const onIdle = window.requestIdleCallback || ((cb) => setTimeout(cb, 1));
-			onIdle(async () => {
-				const { PagefindUI } = await import("@pagefind/default-ui");
-				new PagefindUI({
-					baseUrl: import.meta.env.BASE_URL,
-					bundlePath: import.meta.env.BASE_URL.replace(/\/$/, "") + "/pagefind/",
-					element: "#cactus__search",
-					showImages: false,
-					showSubResults: true,
-					translations: {
-						alt_search: "没有找到 [SEARCH_TERM] 的结果。显示 [DIFFERENT_TERM] 的结果：",
-						clear_search: "清除",
-						filters_label: "筛选",
-						load_more: "加载更多结果",
-						many_results: "[COUNT] 个 [SEARCH_TERM] 的结果",
-						one_result: "[COUNT] 个 [SEARCH_TERM] 的结果",
-						placeholder: "搜索",
-						search_label: "搜索本站",
-						search_suggestion: "没有找到 [SEARCH_TERM] 的结果。尝试以下搜索之一：",
-						searching: "正在搜索 [SEARCH_TERM]…",
-						zero_results: "没有找到 [SEARCH_TERM] 的结果",
-					},
-				});
-			});
 		}
 
 		disconnectedCallback() {

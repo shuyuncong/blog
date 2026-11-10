@@ -28,8 +28,12 @@ const dateTimeOptions: Intl.DateTimeFormatOptions = {
 				alt={data.coverImage.alt}
 				class="h-full w-full object-cover"
 				fetchpriority="high"
+				format="webp"
 				loading="eager"
+				quality={80}
+				sizes="(max-width: 768px) 100vw, 768px"
 				src={data.coverImage.src}
+				widths={[400, 800, 1080]}
 			/>
 		</div>
 	)
@@ -76,7 +80,7 @@ const dateTimeOptions: Intl.DateTimeFormatOptions = {
 			{data.tags.map((tag, i) => (
 				<span>
 					<a
-						aria-label={`View more blogs with the tag ${tag}`}
+						aria-label={`查看标签 ${tag} 的文章`}
 						class="cactus-link inline-block before:content-['#']"
 						data-pagefind-filter="tag"
 						href={`/tags/${encodeURIComponent(tag)}/`}

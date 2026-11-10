@@ -10,11 +10,13 @@ export const GET = async () => {
 		title: siteConfig.title,
 		description: siteConfig.description,
 		site: import.meta.env.SITE,
+		customData: `<language>${siteConfig.lang}</language>`,
 		items: posts.map((post) => ({
 			title: post.data.title,
 			description: post.data.description,
 			pubDate: post.data.publishDate,
 			link: `posts/${post.id}`,
+			categories: post.data.tags,
 		})),
 		// 👇 Please specify the directory for the XSL stylesheet file
 		stylesheet: "/rss.xsl",

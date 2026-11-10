@@ -43,19 +43,43 @@ const { class: className, slug } = Astro.props;
 	const slug = counter?.dataset.slug;
 
 	if (counter && slug) {
-		fetch("/api/views", {
-			method: "POST",
-			headers: { "Content-Type": "application/json" },
-			body: JSON.stringify({ slug }),
-		})
-			.then((response) => (response.ok ? response.json() : null))
-			.then((data: { views?: unknown } | null) => {
-				if (typeof data?.views === "number") {
-					counter.textContent = data.views.toLocaleString("zh-CN");
-				}
+		const cacheKey = `post-views:${slug}`;
+		const renderViews = (views: number) => {
+			counter.textContent = views.toLocaleString("zh-CN");
+		};
+		const readCachedViews = () => {
+			try {
+				const cached = sessionStorage.getItem(cacheKey);
+				return cached ? Number(cached) : null;
+			} catch {
+				return null;
+			}
+		};
+
+		const cachedViews = readCachedViews();
+		if (typeof cachedViews === "number" && Number.isFinite(cachedViews)) {
+			renderViews(cachedViews);
+		} else {
+			fetch("/api/views", {
+				method: "POST",
+				headers: { "Content-Type": "application/json" },
+				body: JSON.stringify({ slug }),
+				keepalive: true,
 			})
-			.catch(() => {
-				// Keep the placeholder when the counter is unavailable.
-			});
+				.then((response) => (response.ok ? response.json() : null))
+				.then((data: { views?: unknown } | null) => {
+					if (typeof data?.views === "number") {
+						renderViews(data.views);
+						try {
+							sessionStorage.setItem(cacheKey, String(data.views));
+						} catch {
+							// Ignore storage failures; the counter still works.
+						}
+					}
+				})
+				.catch(() => {
+					// Keep the placeholder when the counter is unavailable.
+				});
+		}
 	}
 </script>

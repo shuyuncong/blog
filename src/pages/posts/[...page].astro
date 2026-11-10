@@ -57,7 +57,7 @@ const descYearKeys = Object.keys(groupedByYear).sort((a, b) => +b - +a);
 						<ul class="mb-8 mt-6 space-y-8 text-start">
 							{groupedByYear[yearKey]?.map((p) => (
 								<li class="grid gap-2 sm:grid-cols-[auto_1fr] sm:[&_q]:col-start-2">
-									<PostPreview post={p} />
+									<PostPreview as="h3" post={p} />
 								</li>
 							))}
 						</ul>
@@ -86,13 +86,13 @@ const descYearKeys = Object.keys(groupedByYear).sort((a, b) => +b - +a);
 							<path d="M17.573 18.407l2.834 -2.834a2.025 2.025 0 0 0 0 -2.864l-7.117 -7.116" />
 							<path d="M6 9h-.01" />
 						</svg>
-						Tags
+						标签
 					</h2>
 					<ul class="flex flex-wrap gap-2 text-bgColor">
 						{uniqueTags.map((tag) => (
 							<li>
 								<a
-									aria-label={`View all posts with the tag: ${tag}`}
+									aria-label={`查看标签 ${tag} 的所有文章`}
 									class="flex items-center justify-center rounded-lg  p-1"
 									href={`/tags/${encodeURIComponent(tag)}/`}
 								>
@@ -102,8 +102,8 @@ const descYearKeys = Object.keys(groupedByYear).sort((a, b) => +b - +a);
 						))}
 					</ul>
 					<span class="mt-4 block sm:text-end">
-						<a aria-label="View all blog categories" class="sm:hover:text-accent" href="/tags/">
-							View all →
+						<a aria-label="查看所有标签" class="sm:hover:text-accent" href="/tags/">
+							查看全部 →
 						</a>
 					</span>
 				</aside>

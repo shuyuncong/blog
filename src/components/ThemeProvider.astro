@@ -2,12 +2,20 @@
 <script is:inline>
 	const lightModePref = window.matchMedia("(prefers-color-scheme: light)");
 
-	function getUserPref() {
-		const storedTheme = typeof localStorage !== "undefined" && localStorage.getItem("theme");
-		return storedTheme || (lightModePref.matches ? "light" : "dark");
+	function getStoredTheme() {
+		try {
+			const storedTheme = localStorage.getItem("theme");
+			return storedTheme === "light" || storedTheme === "dark" ? storedTheme : null;
+		} catch {
+			return null;
+		}
 	}
 
-	function setTheme(newTheme) {
+	function getUserPref() {
+		return getStoredTheme() ?? (lightModePref.matches ? "light" : "dark");
+	}
+
+	function setTheme(newTheme, persist = false) {
 		if (newTheme !== "light" && newTheme !== "dark") {
 			return console.warn(
 				`Invalid theme value '${newTheme}' received. Expected 'light' or 'dark'.`,
@@ -25,9 +33,14 @@
 
 		const colorThemeMetaTag = document.querySelector("meta[name='theme-color']");
 		const bgColour = getComputedStyle(document.body).getPropertyValue("--theme-bg");
-		colorThemeMetaTag.setAttribute("content", `hsl(${bgColour})`);
-		if (typeof localStorage !== "undefined") {
-			localStorage.setItem("theme", newTheme);
+		colorThemeMetaTag?.setAttribute("content", `hsl(${bgColour})`);
+
+		if (persist) {
+			try {
+				localStorage.setItem("theme", newTheme);
+			} catch {
+				// Storage can be unavailable in private browsing.
+			}
 		}
 	}
 
@@ -39,9 +52,12 @@
 
 	// listen for theme-change custom event, fired in src/components/ThemeToggle.astro
 	document.addEventListener("theme-change", (e) => {
-		setTheme(e.detail.theme);
+		setTheme(e.detail.theme, true);
 	});
 
-	// listen for prefers-color-scheme change.
-	lightModePref.addEventListener("change", (e) => setTheme(e.matches ? "light" : "dark"));
+	// Follow the OS only while the user has not made an explicit choice.
+	lightModePref.addEventListener("change", (e) => {
+		if (getStoredTheme()) return;
+		setTheme(e.matches ? "light" : "dark");
+	});
 </script>
