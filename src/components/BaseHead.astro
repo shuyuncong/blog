@@ -83,27 +83,9 @@ const structuredData = [
 <meta content={description} name="twitter:description" />
 <meta content={socialImageURL} name="twitter:image" />
 
-{
-	import.meta.env.PROD && (
-		<Fragment>
-			{/* Google tag (gtag.js) */}
-			<script
-				async
-				is:inline
-				src="https://www.googletagmanager.com/gtag/js?id=G-MJYKGPVKY1"
-			/>
-			<script is:inline>
-				window.dataLayer = window.dataLayer || [];
-				function gtag() {
-					dataLayer.push(arguments);
-				}
-				gtag("js", new Date());
-
-				gtag("config", "G-MJYKGPVKY1");
-			</script>
-		</Fragment>
-	)
-}
+{/* Keep image CDNs warm; article images are lazy-loaded from these hosts. */}
+<link href="https://cdn.illsky.com" rel="preconnect" />
+<link href="https://cdn.jsdelivr.net" rel="preconnect" />
 
 {/* Sitemap */}
 <link href="/sitemap-index.xml" rel="sitemap" />
