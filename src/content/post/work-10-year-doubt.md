@@ -11,7 +11,7 @@ tags: ["工作", "编程", "大学生", "迷茫", "课程"]
 
 大部分人进入大一对于计算机还是一无所知的，比如我。大一的时候开始学 C/C++ ，整天对着黑框框，不禁在想，自己学了假计算机吗，这是在干什么？
 
-![ss3-1](https://windliangblog.oss-cn-beijing.aliyuncs.com/ss3-1.png)
+![命令行程序运行界面](https://windliangblog.oss-cn-beijing.aliyuncs.com/ss3-1.png)
 
 但我想告诉你的是，计算机不仅如此，对于日常使用的应用可以分为两类，一类就是最开始学习，需要在命令行运行的程序，一般普通用户很少用。
 

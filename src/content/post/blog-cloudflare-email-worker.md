@@ -149,7 +149,7 @@ pnpm run deploy
 
 部署完后继续点击 Countinu to Dashboard，进入 Settings -> General，修改下面设置：
 
-![](https://cdn.illsky.com/img/2025/01/202501051542086.png)
+![Vercel 项目设置页面](https://cdn.illsky.com/img/2025/01/202501051542086.png)
 
 一般默认无需修改
 
