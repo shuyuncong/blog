@@ -19,17 +19,13 @@ function firstEnv(...keys: string[]) {
 	return undefined;
 }
 
-const redisUrl = firstEnv(
-	"BLOG_KV_REST_API_URL",
-	"KV_REST_API_URL",
-	"UPSTASH_REDIS_REST_URL",
-);
+const redisUrl = firstEnv("BLOG_KV_REST_API_URL", "KV_REST_API_URL", "UPSTASH_REDIS_REST_URL");
 const redisToken = firstEnv(
 	"BLOG_KV_REST_API_TOKEN",
 	"KV_REST_API_TOKEN",
 	"UPSTASH_REDIS_REST_TOKEN",
 );
-const redis = redisUrl && redisToken ? new Redis({ url: redisUrl, token: redisToken }) : null;
+const redis = redisUrl && redisToken ? new Redis({ token: redisToken, url: redisUrl }) : null;
 
 // Development fallback so the counter works without a Redis instance.
 const devCounts = new Map<string, number>();
@@ -47,13 +43,18 @@ function json(body: unknown, status = 200, headers?: HeadersInit) {
 
 function getClientIp(request: Request) {
 	const forwarded = request.headers.get("x-forwarded-for");
-	if (forwarded) return forwarded.split(",")[0]?.trim() || "unknown";
+	const firstForwarded = forwarded?.split(",")[0]?.trim();
+	if (firstForwarded) return firstForwarded;
 	return request.headers.get("x-real-ip") ?? "unknown";
 }
 
 export const POST: APIRoute = async ({ request }) => {
-	const body = await request.json().catch(() => null);
-	const slug = body && typeof body === "object" && "slug" in body ? body.slug : null;
+	const body: unknown = await request.json().catch(() => null);
+	let slug: unknown = null;
+
+	if (body && typeof body === "object" && "slug" in body) {
+		slug = body.slug;
+	}
 
 	if (typeof slug !== "string" || !SLUG_PATTERN.test(slug)) {
 		return json({ error: "Invalid slug" }, 400);
@@ -71,7 +72,7 @@ export const POST: APIRoute = async ({ request }) => {
 
 		const ip = getClientIp(request);
 		const window = Math.floor(Date.now() / (RATE_WINDOW_SECONDS * 1000));
-		const rateKey = `${KEY_PREFIX}rate:${ip}:${window}`;
+		const rateKey = `${KEY_PREFIX}rate:${ip}:${String(window)}`;
 		const rate = await redis.incr(rateKey);
 
 		if (rate === 1) {

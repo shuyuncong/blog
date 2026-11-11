@@ -1,9 +1,9 @@
 ---
 import type { GetStaticPaths, InferGetStaticPropsType } from "astro";
-import { render } from "astro:content";
 
-import PostLayout from "@/layouts/BlogPost.astro";
 import { getAllPosts } from "@/data/post";
+import PostLayout from "@/layouts/BlogPost.astro";
+import { render } from "astro:content";
 
 export const getStaticPaths = (async () => {
 	const blogEntries = await getAllPosts();

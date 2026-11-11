@@ -1,11 +1,11 @@
 ---
 import type { CollectionEntry } from "astro:content";
-import { render } from "astro:content";
 
 import BlogHero from "@/components/blog/Hero.astro";
 import TOC from "@/components/blog/TOC.astro";
 import WebMentions from "@/components/blog/webmentions/index.astro";
 import { siteConfig } from "@/site-config";
+import { render } from "astro:content";
 
 import BaseLayout from "./Base.astro";
 
@@ -39,8 +39,8 @@ const articleJsonLd = {
 	image: socialImageUrl,
 	inLanguage: siteConfig.lang,
 	mainEntityOfPage: {
-		"@type": "WebPage",
 		"@id": canonicalUrl,
+		"@type": "WebPage",
 	},
 	publisher: {
 		"@type": "Person",

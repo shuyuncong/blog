@@ -1,6 +1,6 @@
-import { defineCollection } from "astro:content";
 import { glob } from "astro/loaders";
 import { z } from "astro/zod";
+import { defineCollection } from "astro:content";
 
 function removeDupsAndLowerCase(array: string[]) {
 	if (!array.length) return array;
@@ -20,7 +20,10 @@ const post = defineCollection({
 	loader: glob({
 		base: "./src/content/post",
 		generateId: ({ entry }) =>
-			entry.replace(/\.(md|mdx)$/, "").replace(/\/index$/, "").toLowerCase(),
+			entry
+				.replace(/\.(?:md|mdx)$/, "")
+				.replace(/\/index$/, "")
+				.toLowerCase(),
 		pattern: "**/*.{md,mdx}",
 	}),
 	schema: ({ image }) =>
@@ -40,13 +43,10 @@ const post = defineCollection({
 				title: z.string().max(60),
 				updatedDate: dateSchema.optional(),
 			})
-			.refine(
-				({ publishDate, updatedDate }) => !updatedDate || updatedDate >= publishDate,
-				{
-					message: "updatedDate must not be earlier than publishDate",
-					path: ["updatedDate"],
-				},
-			),
+			.refine(({ publishDate, updatedDate }) => !updatedDate || updatedDate >= publishDate, {
+				message: "updatedDate must not be earlier than publishDate",
+				path: ["updatedDate"],
+			}),
 });
 
 export const collections = { post };

@@ -47,6 +47,14 @@ module.exports = {
 			files: ["**/*.md"],
 			processor: "markdown/markdown",
 		},
+		{
+			files: ["**/*.md/*.js"],
+			parserOptions: { project: null },
+			rules: {
+				"@typescript-eslint/no-unused-vars": "off",
+				"deprecation/deprecation": "off",
+			},
+		},
 	],
 	parser: "@typescript-eslint/parser",
 	parserOptions: {

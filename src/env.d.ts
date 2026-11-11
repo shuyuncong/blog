@@ -3,9 +3,7 @@
 /// <reference types="astro/client" />
 
 declare module "@pagefind/default-ui" {
-	declare class PagefindUI {
-		constructor(arg: unknown);
-	}
+	export const PagefindUI: new (arg: unknown) => unknown;
 }
 
 interface ImportMetaEnv {

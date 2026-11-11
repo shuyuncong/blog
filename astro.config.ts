@@ -18,10 +18,10 @@ import { remarkReadingTime } from "./src/utils/remark-reading-time";
 export default defineConfig({
 
 	adapter: vercel(),
+	compressHTML: true,
 	image: {
 		domains: ["webmention.io"],
 	},
-	compressHTML: true,
 	integrations: [
 		expressiveCode(expressiveCodeOptions),
 		icon(),

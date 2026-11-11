@@ -14,9 +14,11 @@ const latestPosts = allPostsByDate.slice(0, 10);
 		<h1 class="title mb-6">👋🏻Hi!</h1>
 		<p class="mb-4">
 			I'm shuyuncong, welcome to my Blog📖.
-			<br /><br />
+			<br />
+			<br />
 			I will be documenting the journey of life🥳 and problem-solving💡here,
-			<br /><br />
+			<br />
+			<br />
 			occasionally delving into more academic philosophical questions👀.
 			<br />
 		</p>
@@ -25,36 +27,36 @@ const latestPosts = allPostsByDate.slice(0, 10);
 	<section aria-label="文章列表" class="mt-16">
 		<h2 class="title mb-4 text-xl">最新文章</h2>
 		<ul class="space-y-4">
-			{
-				latestPosts.map((p) => (
-					<li class="grid gap-2 sm:grid-cols-[auto_1fr] sm:[&_q]:col-start-2">
-						<PostPreview as="h3" post={p} />
-					</li>
-				))
-			}
+			{latestPosts.map((p) => (
+				<li class="grid gap-2 sm:grid-cols-[auto_1fr] sm:[&_q]:col-start-2">
+					<PostPreview as="h3" post={p} />
+				</li>
+			))}
 		</ul>
-		<a class="cactus-link mt-6 inline-block" href="/posts/">查看全部文章 →</a>
+		<a class="cactus-link mt-6 inline-block" href="/posts/">
+			查看全部文章 →
+		</a>
 	</section>
 	<div class="starr">
 		<div class="glowing">
-		  <span style="--i:1;"></span>
-		  <span style="--i:2;"></span>
-		  <span style="--i:3;"></span>
+			<span style="--i:1;"></span>
+			<span style="--i:2;"></span>
+			<span style="--i:3;"></span>
 		</div>
 		<div class="glowing">
-		  <span style="--i:1;"></span>
-		  <span style="--i:2;"></span>
-		  <span style="--i:3;"></span>
+			<span style="--i:1;"></span>
+			<span style="--i:2;"></span>
+			<span style="--i:3;"></span>
 		</div>
 		<div class="glowing">
-		  <span style="--i:1;"></span>
-		  <span style="--i:2;"></span>
-		  <span style="--i:3;"></span>
+			<span style="--i:1;"></span>
+			<span style="--i:2;"></span>
+			<span style="--i:3;"></span>
 		</div>
 		<div class="glowing">
-		  <span style="--i:1;"></span>
-		  <span style="--i:2;"></span>
-		  <span style="--i:3;"></span>
+			<span style="--i:1;"></span>
+			<span style="--i:2;"></span>
+			<span style="--i:3;"></span>
 		</div>
 	</div>
 </PageLayout>

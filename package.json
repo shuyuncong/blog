@@ -13,7 +13,8 @@
 		"postbuild": "pagefind --site .vercel/output/static",
 		"format": "prettier -w --cache .",
 		"images:dimensions": "node scripts/fetch-image-dimensions.mjs",
-		"check": "astro check"
+		"check": "astro check",
+		"lint": "eslint . --max-warnings=0"
 	},
 	"dependencies": {
 		"@astrojs/mdx": "^8.1.3",

@@ -1,3 +1,3 @@
 export { getFormattedDate } from "./date";
 export { elementHasClass, rootInDarkMode } from "./domElement";
-export { generateToc, type TocItem } from "./generateToc";
+export { type TocItem, generateToc } from "./generateToc";

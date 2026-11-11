@@ -1,5 +1,6 @@
+import type { WebmentionsCache, WebmentionsChildren, WebmentionsFeed } from "@/types";
+
 import * as fs from "node:fs";
-import type { WebmentionsFeed, WebmentionsCache, WebmentionsChildren } from "@/types";
 
 const DOMAIN = import.meta.env.SITE;
 const API_TOKEN = import.meta.env.WEBMENTION_API_KEY;
@@ -10,7 +11,7 @@ const validWebmentionTypes = ["like-of", "mention-of", "in-reply-to"];
 const hostName = new URL(DOMAIN).hostname;
 
 // Calls webmention.io api.
-async function fetchWebmentions(timeFrom: string | null, perPage = 1000) {
+async function fetchWebmentions(timeFrom: null | string, perPage = 1000) {
 	if (!DOMAIN) {
 		console.warn("No domain specified. Please set in astro.config.ts");
 		return null;
@@ -21,7 +22,7 @@ async function fetchWebmentions(timeFrom: string | null, perPage = 1000) {
 		return null;
 	}
 
-	let url = `https://webmention.io/api/mentions.jf2?domain=${hostName}&token=${API_TOKEN}&sort-dir=up&per-page=${perPage}`;
+	let url = `https://webmention.io/api/mentions.jf2?domain=${hostName}&token=${API_TOKEN}&sort-dir=up&per-page=${String(perPage)}`;
 
 	if (timeFrom) url += `&since=${encodeURIComponent(timeFrom)}`;
 
@@ -39,7 +40,7 @@ async function fetchWebmentions(timeFrom: string | null, perPage = 1000) {
 function mergeWebmentions(a: WebmentionsCache, b: WebmentionsFeed): WebmentionsChildren[] {
 	return Array.from(
 		[...a.children, ...b.children]
-			.reduce((map, obj) => map.set(obj["wm-id"], obj), new Map())
+			.reduce((map, obj) => map.set(obj["wm-id"], obj), new Map<number, WebmentionsChildren>())
 			.values(),
 	);
 }
@@ -75,15 +76,29 @@ function writeToCache(data: WebmentionsCache) {
 	});
 }
 
+function isWebmentionsCache(value: unknown): value is WebmentionsCache {
+	return (
+		typeof value === "object" &&
+		value !== null &&
+		"children" in value &&
+		Array.isArray(value.children) &&
+		"lastFetched" in value &&
+		(value.lastFetched === null || typeof value.lastFetched === "string")
+	);
+}
+
 function getFromCache(): WebmentionsCache {
 	if (fs.existsSync(filePath)) {
-		const data = fs.readFileSync(filePath, "utf-8");
-		return JSON.parse(data);
+		const data: unknown = JSON.parse(fs.readFileSync(filePath, "utf-8"));
+
+		if (isWebmentionsCache(data)) return data;
+
+		console.warn(`Ignoring invalid webmentions cache at ${filePath}`);
 	}
 	// no cache found
 	return {
-		lastFetched: null,
 		children: [],
+		lastFetched: null,
 	};
 }
 
@@ -94,9 +109,9 @@ async function getAndCacheWebmentions() {
 	if (mentions) {
 		mentions.children = filterWebmentions(mentions.children);
 		const webmentions: WebmentionsCache = {
-			lastFetched: new Date().toISOString(),
 			// Make sure the first arg is the cache
 			children: mergeWebmentions(cache, mentions),
+			lastFetched: new Date().toISOString(),
 		};
 
 		writeToCache(webmentions);
@@ -106,7 +121,7 @@ async function getAndCacheWebmentions() {
 	return cache;
 }
 
-let webMentions: WebmentionsCache;
+let webMentions: WebmentionsCache | null = null;
 
 export async function getWebmentionsForUrl(url: string) {
 	if (!webMentions) webMentions = await getAndCacheWebmentions();

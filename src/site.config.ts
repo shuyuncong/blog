@@ -8,9 +8,9 @@ export const siteConfig: SiteConfig = {
 	date: {
 		locale: "zh-cn",
 		options: {
-			year: "numeric",
-			month: "2-digit",
 			day: "2-digit",
+			month: "2-digit",
+			year: "numeric",
 		},
 	},
 	// Meta property used as the default description meta property

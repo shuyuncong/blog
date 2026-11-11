@@ -108,6 +108,6 @@ const structuredData = [
 <meta content={Astro.generator} name="generator" />
 
 <script
-	type="application/ld+json"
 	set:html={JSON.stringify(structuredData).replace(/</g, "\\u003c")}
+	type="application/ld+json"
 />
