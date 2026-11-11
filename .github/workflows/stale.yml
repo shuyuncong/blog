@@ -17,7 +17,7 @@ jobs:
       pull-requests: write
 
     steps:
-      - uses: actions/stale@v7
+      - uses: actions/stale@v9
         with:
           repo-token: ${{ secrets.GITHUB_TOKEN }}
           stale-issue-label: "no-issue-activity"
@@ -25,8 +25,9 @@ jobs:
           stale-issue-message: "This issue has been automatically marked as stale because it has not had recent activity. It will be closed if no further activity occurs. Thank you for your contributions."
           stale-pr-message: "This PR has been automatically marked as stale because it has not had recent activity. It will be closed if no further activity occurs. Thank you for your contributions."
           close-issue-message: "This issue was closed because it has been stalled for 5 days with no activity."
+          close-pr-message: "This PR was closed because it has been stalled for 7 days with no activity."
           days-before-stale: 30
           days-before-close: 5
-          days-before-pr-close: -1
+          days-before-pr-close: 7
           exempt-issue-labels: "not-stale,bug,pinned,security,pending,awaiting-approval,work-in-progress"
           exempt-pr-labels: "not-stale,bug,pinned,security,pending,awaiting-approval,work-in-progress"

@@ -11,4 +11,11 @@ updates:
       interval: "monthly"
     allow:
       - dependency-type: "direct"
-    open-pull-requests-limit: 20
+    groups:
+      minor-and-patch:
+        patterns:
+          - "*"
+        update-types:
+          - "minor"
+          - "patch"
+    open-pull-requests-limit: 5
