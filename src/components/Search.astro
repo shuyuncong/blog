@@ -1,7 +1,7 @@
 ---
 // Heavy inspiration taken from Astro Starlight -> https://github.com/withastro/starlight/blob/main/packages/starlight/components/Search.astro
 
-import "@pagefind/default-ui/css/ui.css";
+// Pagefind UI and its CSS are loaded only when the user shows search intent.
 ---
 
 <site-search class="ms-auto" id="search">
@@ -61,6 +61,7 @@ import "@pagefind/default-ui/css/ui.css";
 		private dialog: HTMLDialogElement;
 		private dialogFrame: HTMLDivElement;
 		private openBtn: HTMLButtonElement;
+		private pagefindCssReady: Promise<void> | null = null;
 		private pagefindReady: Promise<void> | null = null;
 
 		closeModal = () => {
@@ -103,12 +104,43 @@ import "@pagefind/default-ui/css/ui.css";
 			}
 		};
 
+		loadPagefindCss = () => {
+			if (import.meta.env.DEV) return Promise.resolve();
+			if (this.pagefindCssReady) return this.pagefindCssReady;
+
+			const cssUrl = import.meta.env.BASE_URL.replace(/\/$/, "") + "/pagefind/pagefind-ui.css";
+
+			this.pagefindCssReady = new Promise<void>((resolve, reject) => {
+				const link = document.createElement("link");
+				link.rel = "stylesheet";
+				link.href = cssUrl;
+				link.addEventListener("load", () => resolve(), { once: true });
+				link.addEventListener(
+					"error",
+					() => {
+						this.pagefindCssReady = null;
+						reject(new Error("Failed to load Pagefind UI CSS"));
+					},
+					{ once: true },
+				);
+				document.head.append(link);
+			});
+
+			return this.pagefindCssReady;
+		};
+
+		preloadPagefind = () => {
+			if (import.meta.env.DEV) return;
+			void this.loadPagefindCss().catch(() => {});
+			void import("@pagefind/default-ui").catch(() => {});
+		};
+
 		loadPagefind = () => {
 			if (import.meta.env.DEV) return Promise.resolve();
 			if (this.pagefindReady) return this.pagefindReady;
 
-			this.pagefindReady = import("@pagefind/default-ui")
-				.then(({ PagefindUI }) => {
+			this.pagefindReady = Promise.all([import("@pagefind/default-ui"), this.loadPagefindCss()])
+				.then(([{ PagefindUI }]) => {
 					new PagefindUI({
 						baseUrl: import.meta.env.BASE_URL,
 						bundlePath: import.meta.env.BASE_URL.replace(/\/$/, "") + "/pagefind/",
@@ -159,6 +191,11 @@ import "@pagefind/default-ui/css/ui.css";
 			this.dialog = this.querySelector("dialog")!;
 			this.dialogFrame = this.querySelector(".dialog-frame")!;
 
+			this.openBtn.addEventListener("pointerenter", this.preloadPagefind, {
+				once: true,
+				passive: true,
+			});
+			this.openBtn.addEventListener("focus", this.preloadPagefind, { once: true });
 			this.openBtn.addEventListener("click", this.openModal);
 			this.openBtn.disabled = false;
 			this.closeBtn.addEventListener("click", this.closeModal);
