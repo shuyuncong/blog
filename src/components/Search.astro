@@ -6,10 +6,12 @@
 
 <site-search class="ms-auto" id="search">
 	<button
+		aria-keyshortcuts="/"
 		aria-label="搜索"
-		class="flex h-9 w-9 items-center justify-center rounded-md ring-zinc-400 transition-all hover:ring-2"
+		class="flex h-9 w-9 items-center justify-center rounded-lg text-gray-500 transition-colors hover:bg-zinc-100 hover:text-textColor focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-accent-2 dark:text-gray-400 dark:hover:bg-zinc-800 dark:hover:text-gray-100"
 		data-open-modal
 		disabled
+		title="搜索 (/)"
 	>
 		<svg
 			aria-hidden="true"
@@ -28,20 +30,44 @@
 			<path d="M3 10a7 7 0 1 0 14 0 7 7 0 1 0-14 0M21 21l-6-6"></path>
 		</svg>
 	</button>
-	<dialog
-		aria-label="搜索"
-		class="h-full max-h-full w-full max-w-full border border-zinc-400 bg-bgColor shadow backdrop:backdrop-blur sm:mx-auto sm:mb-auto sm:mt-16 sm:h-max sm:max-h-[calc(100%-8rem)] sm:min-h-[15rem] sm:w-5/6 sm:max-w-[48rem] sm:rounded-md"
-	>
-		<div class="dialog-frame flex flex-col gap-4 p-6 pt-12 sm:pt-6">
-			<button
-				class="ms-auto cursor-pointer rounded-md bg-zinc-200 p-2 font-semibold dark:bg-zinc-700"
-				data-close-modal>关闭</button
-			>
-			{
-				import.meta.env.DEV ? (
-					<div class="mx-auto text-center">
+	<dialog aria-labelledby="search-title" class="search-dialog">
+		<div class="dialog-frame">
+			<header class="search-header">
+				<div class="min-w-0">
+					<p class="search-kicker">Search</p>
+					<h2 class="search-title" id="search-title">
+						搜索文章
+					</h2>
+				</div>
+				<button
+					aria-label="关闭搜索"
+					class="search-close"
+					data-close-modal
+					title="关闭 (Esc)"
+					type="button"
+				>
+					<svg
+						aria-hidden="true"
+						fill="none"
+						height="18"
+						stroke="currentColor"
+						stroke-linecap="round"
+						stroke-linejoin="round"
+						stroke-width="1.75"
+						viewBox="0 0 24 24"
+						width="18"
+						xmlns="http://www.w3.org/2000/svg"
+					>
+						<path d="M6 18 18 6M6 6l12 12"></path>
+					</svg>
+				</button>
+			</header>
+			<div class="search-body">
+				{import.meta.env.DEV ? (
+					<div class="search-dev-note">
 						<p>
-							搜索仅在正式构建中可用。<br />
+							搜索仅在正式构建中可用。
+							<br />
 							请先构建站点并在本地预览测试。
 						</p>
 					</div>
@@ -49,8 +75,14 @@
 					<div class="search-container">
 						<div id="cactus__search" />
 					</div>
-				)
-			}
+				)}
+			</div>
+			<footer aria-hidden="true" class="search-footer">
+				<span>搜索标题、标签与正文</span>
+				<span class="search-hint">
+					<kbd class="search-key">Esc</kbd> 关闭
+				</span>
+			</footer>
 		</div>
 	</dialog>
 </site-search>
@@ -145,6 +177,7 @@
 						baseUrl: import.meta.env.BASE_URL,
 						bundlePath: import.meta.env.BASE_URL.replace(/\/$/, "") + "/pagefind/",
 						element: "#cactus__search",
+						showEmptyFilters: false,
 						showImages: false,
 						showSubResults: true,
 						translations: {
@@ -156,12 +189,15 @@
 							one_result: "[COUNT] 个 [SEARCH_TERM] 的结果",
 							placeholder: "搜索",
 							search_label: "搜索本站",
-							search_suggestion:
-								"没有找到 [SEARCH_TERM] 的结果。尝试以下搜索之一：",
+							search_suggestion: "没有找到 [SEARCH_TERM] 的结果。尝试以下搜索之一：",
 							searching: "正在搜索 [SEARCH_TERM]…",
 							zero_results: "没有找到 [SEARCH_TERM] 的结果",
 						},
 					});
+
+					this.querySelector<HTMLInputElement>(
+						"#cactus__search .pagefind-ui__search-input",
+					)?.setAttribute("aria-label", "搜索文章");
 				})
 				.catch((error) => {
 					console.error("[search] Failed to load Pagefind UI:", error);
@@ -218,58 +254,552 @@
 </script>
 
 <style is:global>
-	:root {
+	#search {
+		--search-surface: hsl(var(--theme-bg));
+		--search-field: color-mix(in oklab, hsl(var(--theme-bg)) 94%, hsl(var(--theme-text)) 6%);
+		--search-wash: color-mix(in oklab, hsl(var(--theme-text)) 6%, transparent);
+		--search-border: color-mix(in oklab, hsl(var(--theme-text)) 14%, transparent);
+		--search-muted: color-mix(in oklab, hsl(var(--theme-text)) 64%, transparent);
+		--search-accent: hsl(var(--theme-link));
+		--search-shadow: 0 30px 70px -24px rgb(0 0 0 / 0.35), 0 8px 24px -12px rgb(0 0 0 / 0.22);
+
+		--pagefind-ui-scale: 1;
+		--pagefind-ui-primary: var(--search-accent);
+		--pagefind-ui-text: hsl(var(--theme-text));
+		--pagefind-ui-background: transparent;
+		--pagefind-ui-border: var(--search-border);
+		--pagefind-ui-tag: var(--search-field);
+		--pagefind-ui-border-width: 1px;
+		--pagefind-ui-border-radius: 0.8rem;
+		--pagefind-ui-image-border-radius: 0.6rem;
 		--pagefind-ui-font: inherit;
 	}
 
-	#cactus__search .pagefind-ui__search-clear {
-		width: calc(60px * var(--pagefind-ui-scale));
+	#search .search-dialog {
+		position: fixed;
+		inset: 0;
+		width: 100%;
+		height: 100dvh;
+		max-width: none;
+		max-height: none;
+		margin: 0;
 		padding: 0;
-		background-color: transparent;
+		overflow: hidden;
+		border: 0;
+		background: transparent;
+		color: hsl(var(--theme-text));
+	}
+
+	#search .search-dialog::backdrop {
+		background: rgb(8 12 18 / 0.58);
+		-webkit-backdrop-filter: blur(10px) saturate(1.1);
+		backdrop-filter: blur(10px) saturate(1.1);
+	}
+
+	html:has(#search .search-dialog[open]) {
 		overflow: hidden;
 	}
-	#cactus__search .pagefind-ui__search-clear:focus {
-		outline: 1px solid var(--color-accent-2);
+
+	#search .search-dialog[open] {
+		animation: search-dialog-in 180ms cubic-bezier(0.2, 0.8, 0.2, 1);
 	}
-	#cactus__search .pagefind-ui__search-clear::before {
-		content: "";
-		-webkit-mask: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' fill='none' viewBox='0 0 24 24' stroke-width='1.5' stroke='currentColor' %3E%3Cpath stroke-linecap='round' stroke-linejoin='round' d='M6 18L18 6M6 6l12 12'%3E%3C/path%3E%3C/svg%3E")
-			center / 60% no-repeat;
-		mask: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' fill='none' viewBox='0 0 24 24' stroke-width='1.5' stroke='currentColor' %3E%3Cpath stroke-linecap='round' stroke-linejoin='round' d='M6 18L18 6M6 6l12 12'%3E%3C/path%3E%3C/svg%3E")
-			center / 60% no-repeat;
-		background-color: var(--color-accent);
+
+	@keyframes search-dialog-in {
+		from {
+			opacity: 0;
+			transform: translateY(10px) scale(0.985);
+		}
+		to {
+			opacity: 1;
+			transform: translateY(0) scale(1);
+		}
+	}
+
+	#search .dialog-frame {
+		display: flex;
+		flex-direction: column;
+		height: 100%;
+		max-height: 100%;
+		overflow: hidden;
+		background: var(--search-surface);
+	}
+
+	#search .search-header {
+		display: flex;
+		flex-shrink: 0;
+		align-items: center;
+		justify-content: space-between;
+		gap: 1rem;
+		padding: 1rem 1.25rem 0.9rem;
+		border-bottom: 1px solid var(--search-border);
+	}
+
+	#search .search-kicker {
+		margin: 0 0 0.35rem;
+		color: var(--search-muted);
+		font-size: 0.625rem;
+		font-weight: 600;
+		letter-spacing: 0.2em;
+		line-height: 1;
+		text-transform: uppercase;
+	}
+
+	#search .search-title {
+		margin: 0;
+		color: hsl(var(--theme-text));
+		font-size: 1.05rem;
+		font-weight: 600;
+		letter-spacing: -0.015em;
+		line-height: 1.2;
+	}
+
+	#search .search-close {
+		display: grid;
+		flex-shrink: 0;
+		place-items: center;
+		width: 2.5rem;
+		height: 2.5rem;
+		padding: 0;
+		border: 1px solid var(--search-border);
+		border-radius: 0.65rem;
+		background: transparent;
+		color: var(--search-muted);
+		cursor: pointer;
+		transition:
+			background-color 150ms ease,
+			border-color 150ms ease,
+			color 150ms ease;
+	}
+
+	#search .search-close:hover {
+		border-color: color-mix(in oklab, var(--search-accent) 42%, var(--search-border));
+		background: var(--search-wash);
+		color: hsl(var(--theme-text));
+	}
+
+	#search .search-close:focus-visible {
+		outline: 2px solid var(--search-accent);
+		outline-offset: 2px;
+	}
+
+	#search .search-body {
+		display: flex;
+		flex: 1;
+		min-height: 0;
+		padding: 1rem 1.25rem 0;
+		overflow: hidden;
+	}
+
+	#search .search-container {
+		display: flex;
+		flex: 1;
+		min-width: 0;
+		min-height: 8rem;
+	}
+
+	#search .search-dev-note {
+		width: 100%;
+		padding: 3rem 1rem;
+		color: var(--search-muted);
+		font-size: 0.8rem;
+		line-height: 1.8;
+		text-align: center;
+	}
+
+	#search .search-footer {
+		display: none;
+		flex-shrink: 0;
+		align-items: center;
+		justify-content: space-between;
+		gap: 1rem;
+		padding: 0.8rem 1.5rem 0.9rem;
+		border-top: 1px solid var(--search-border);
+		color: var(--search-muted);
+		font-size: 0.7rem;
+	}
+
+	#search .search-hint {
+		display: inline-flex;
+		align-items: center;
+		gap: 0.4rem;
+	}
+
+	#search .search-key {
+		display: inline-flex;
+		align-items: center;
+		justify-content: center;
+		min-width: 1.7rem;
+		height: 1.35rem;
+		padding: 0 0.35rem;
+		border: 1px solid var(--search-border);
+		border-radius: 0.35rem;
+		background: var(--search-field);
+		color: var(--search-muted);
+		font-family: inherit;
+		font-size: 0.65rem;
+		line-height: 1;
+	}
+
+	@media (min-width: 640px) {
+		#search .search-dialog {
+			width: min(42rem, calc(100vw - 3rem));
+			height: fit-content;
+			max-height: min(43rem, calc(100dvh - 4rem));
+			margin: auto;
+			border: 1px solid var(--search-border);
+			border-radius: 1.25rem;
+			background: var(--search-surface);
+			box-shadow: var(--search-shadow);
+		}
+
+		#search .dialog-frame {
+			height: auto;
+			max-height: inherit;
+			border-radius: inherit;
+		}
+
+		#search .search-header {
+			padding: 1.35rem 1.5rem 1.05rem;
+		}
+
+		#search .search-body {
+			padding: 1.25rem 1.5rem 0;
+		}
+
+		#search .search-footer {
+			display: flex;
+		}
+	}
+
+	#cactus__search {
+		display: flex;
+		flex: 1;
+		min-width: 0;
+		min-height: 0;
+	}
+
+	#cactus__search .pagefind-ui {
+		display: flex;
+		flex: 1;
+		flex-direction: column;
+		min-height: 0;
+		width: 100%;
+		color: hsl(var(--theme-text));
+		font-family: inherit;
+	}
+
+	#cactus__search .pagefind-ui__form {
+		display: flex;
+		flex: 1;
+		flex-direction: column;
+		min-height: 0;
+	}
+
+	#cactus__search .pagefind-ui__form::before {
+		top: 1.625rem;
+		left: 1rem;
+		width: 1.05rem;
+		height: 1.05rem;
+		transform: translateY(-50%);
+		background-color: var(--search-muted);
+		opacity: 1;
+		transition: background-color 150ms ease;
+	}
+
+	#cactus__search .pagefind-ui__form:focus-within::before {
+		background-color: var(--search-accent);
+	}
+
+	#cactus__search .pagefind-ui__form::after {
+		display: block;
+		padding: 1.25rem 0.75rem 0;
+		color: var(--search-muted);
+		font-size: 0.84rem;
+		line-height: 1.6;
+		content: "输入标题、标签或关键词开始搜索";
+	}
+
+	#cactus__search
+		.pagefind-ui__form:has(.pagefind-ui__search-input:not(:placeholder-shown))::after {
+		display: none;
+	}
+
+	#cactus__search .pagefind-ui__search-input {
 		display: block;
 		width: 100%;
-		height: 100%;
+		height: 3.25rem;
+		padding: 0 3.5rem 0 2.9rem !important;
+		border: 1px solid var(--search-border);
+		border-radius: 0.8rem;
+		background: var(--search-field);
+		color: hsl(var(--theme-text));
+		font-family: inherit;
+		font-size: 0.95rem;
+		font-weight: 500;
+		line-height: 1.2;
+		transition:
+			background-color 150ms ease,
+			border-color 150ms ease,
+			box-shadow 150ms ease;
+	}
+
+	#cactus__search .pagefind-ui__search-input::placeholder {
+		color: var(--search-muted);
+		font-weight: 400;
+		opacity: 1;
+	}
+
+	#cactus__search .pagefind-ui__search-input:focus {
+		border-color: color-mix(in oklab, var(--search-accent) 65%, var(--search-border));
+		background: var(--search-surface);
+		box-shadow: 0 0 0 4px color-mix(in oklab, var(--search-accent) 13%, transparent);
+		outline: none;
+	}
+
+	#cactus__search .pagefind-ui__search-clear {
+		top: 1.625rem;
+		right: 0.55rem;
+		z-index: 10;
+		display: grid;
+		place-items: center;
+		width: 2.25rem;
+		height: 2.25rem;
+		padding: 0;
+		overflow: hidden;
+		border: 0;
+		border-radius: 0.55rem;
+		background: transparent;
+		color: var(--search-muted);
+		font-size: 0;
+		line-height: 0;
+		transform: translateY(-50%);
+		transition:
+			background-color 150ms ease,
+			color 150ms ease;
+	}
+
+	#cactus__search .pagefind-ui__search-clear:hover {
+		background: var(--search-wash);
+		color: hsl(var(--theme-text));
+	}
+
+	#cactus__search .pagefind-ui__search-clear:focus-visible {
+		outline: 2px solid var(--search-accent);
+		outline-offset: 1px;
+	}
+
+	#cactus__search .pagefind-ui__search-clear::before {
+		content: "";
+		display: block;
+		width: 1rem;
+		height: 1rem;
+		margin: auto;
+		background-color: currentColor;
+		-webkit-mask: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' fill='none' viewBox='0 0 24 24' stroke-width='1.5' stroke='currentColor' %3E%3Cpath stroke-linecap='round' stroke-linejoin='round' d='M6 18L18 6M6 6l12 12'%3E%3C/path%3E%3C/svg%3E")
+			center / contain no-repeat;
+		mask: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' fill='none' viewBox='0 0 24 24' stroke-width='1.5' stroke='currentColor' %3E%3Cpath stroke-linecap='round' stroke-linejoin='round' d='M6 18L18 6M6 6l12 12'%3E%3C/path%3E%3C/svg%3E")
+			center / contain no-repeat;
+	}
+
+	#cactus__search .pagefind-ui__filter-panel {
+		display: none;
+	}
+
+	#cactus__search .pagefind-ui__drawer {
+		display: block;
+		flex: 1;
+		min-height: 0;
+		margin-top: 0.25rem;
+		padding: 0.35rem 0.15rem 1.25rem;
+		overflow-y: auto;
+		overscroll-behavior: contain;
+		scrollbar-color: var(--search-border) transparent;
+		scrollbar-width: thin;
+	}
+
+	#cactus__search .pagefind-ui__results-area {
+		min-width: 0;
+		margin-top: 0;
+	}
+
+	#cactus__search .pagefind-ui__message {
+		height: auto;
+		min-height: 0;
+		margin: 0;
+		padding: 0.55rem 0.75rem 0.65rem;
+		color: var(--search-muted);
+		font-size: 0.75rem;
+		font-weight: 500;
+		letter-spacing: 0.01em;
+		line-height: 1.5;
+	}
+
+	#cactus__search .pagefind-ui__results {
+		display: flex;
+		flex-direction: column;
+		gap: 0.15rem;
+		padding: 0;
 	}
 
 	#cactus__search .pagefind-ui__result {
+		gap: 0;
+		padding: 0.8rem 0.75rem;
 		border: 0;
+		border-radius: 0.7rem;
+		transition: background-color 150ms ease;
+	}
+
+	#cactus__search .pagefind-ui__result:last-of-type {
+		border-bottom: 0;
+	}
+
+	#cactus__search .pagefind-ui__result:hover {
+		background: var(--search-wash);
+	}
+
+	#cactus__search .pagefind-ui__result-inner {
+		align-items: stretch;
+		gap: 0.25rem;
+		margin-top: 0;
+	}
+
+	#cactus__search .pagefind-ui__result-title {
+		align-self: flex-start;
+		font-size: 0.95rem;
+		font-weight: 600;
+		line-height: 1.5;
 	}
 
 	#cactus__search .pagefind-ui__result-link {
-		color: var(--color-link);
+		color: hsl(var(--theme-text));
 		text-decoration: none;
+		transition: color 150ms ease;
 	}
 
 	#cactus__search .pagefind-ui__result-link:hover {
-		color: var(--color-accent);
+		color: var(--search-accent);
 		text-decoration: none;
 	}
 
+	#cactus__search .pagefind-ui__result-excerpt {
+		min-width: 0;
+		margin-top: 0;
+		color: var(--search-muted);
+		font-size: 0.82rem;
+		font-weight: 400;
+		line-height: 1.7;
+	}
+
+	#cactus__search .pagefind-ui__result-nested {
+		margin-top: 0.45rem;
+		padding-top: 0;
+		padding-left: 0.9rem;
+		border-left: 1px solid var(--search-border);
+	}
+
+	#cactus__search .pagefind-ui__result-nested .pagefind-ui__result-title {
+		font-size: 0.86rem;
+		font-weight: 500;
+	}
+
+	#cactus__search .pagefind-ui__result-nested .pagefind-ui__result-link {
+		color: hsl(var(--theme-text));
+	}
+
+	#cactus__search .pagefind-ui__result-nested .pagefind-ui__result-link::before {
+		content: none;
+	}
+
+	#cactus__search .pagefind-ui__result-nested .pagefind-ui__result-excerpt {
+		margin-top: 0.1rem;
+		font-size: 0.78rem;
+		line-height: 1.65;
+	}
+
+	#cactus__search .pagefind-ui__result-tags {
+		gap: 0.35rem;
+		margin-top: 0.5rem;
+	}
+
+	#cactus__search .pagefind-ui__result-tag {
+		padding: 0.1rem 0.45rem;
+		border: 1px solid var(--search-border);
+		border-radius: 999px;
+		background: var(--search-field);
+		color: var(--search-muted);
+		font-size: 0.68rem;
+	}
+
+	#cactus__search .pagefind-ui__loading {
+		border-radius: 0.7rem;
+		background-color: var(--search-wash);
+		opacity: 1;
+	}
+
+	#cactus__search .pagefind-ui__button {
+		height: 2.5rem;
+		margin-top: 0.75rem;
+		padding: 0 0.75rem;
+		border: 1px solid var(--search-border);
+		border-radius: 0.65rem;
+		background: var(--search-field);
+		color: var(--search-accent);
+		font-family: inherit;
+		font-size: 0.78rem;
+		font-weight: 600;
+		transition:
+			background-color 150ms ease,
+			border-color 150ms ease;
+	}
+
+	#cactus__search .pagefind-ui__button:hover {
+		border-color: color-mix(in oklab, var(--search-accent) 55%, var(--search-border));
+		background: var(--search-wash);
+		color: var(--search-accent);
+	}
+
+	#cactus__search .pagefind-ui__button:focus-visible,
+	#cactus__search .pagefind-ui__result-link:focus-visible {
+		border-radius: 0.25rem;
+		outline: 2px solid var(--search-accent);
+		outline-offset: 2px;
+	}
+
 	#cactus__search mark {
-		color: var(--color-quote);
-		background-color: transparent;
+		padding: 0 0.1em;
+		border-radius: 0.2em;
+		background: color-mix(in oklab, var(--search-accent) 17%, transparent);
+		color: inherit;
 		font-weight: 600;
 	}
-</style>
 
-<style>
-	#cactus__search {
-		--pagefind-ui-primary: var(--color-accent);
-		--pagefind-ui-text: var(--color-textColor);
-		--pagefind-ui-background: var(--color-bgColor);
-		--pagefind-ui-border: var(--color-zinc-400);
-		--pagefind-ui-border-width: 1px;
+	#cactus__search .pagefind-ui__drawer::-webkit-scrollbar {
+		width: 8px;
+	}
+
+	#cactus__search .pagefind-ui__drawer::-webkit-scrollbar-thumb {
+		border: 2px solid transparent;
+		border-radius: 999px;
+		background: var(--search-border);
+		background-clip: padding-box;
+	}
+
+	@media (min-width: 640px) {
+		#cactus__search .pagefind-ui__form::after {
+			display: none;
+		}
+	}
+
+	@media (prefers-reduced-motion: reduce) {
+		#search .search-dialog[open] {
+			animation: none;
+		}
+
+		#search .search-close,
+		#cactus__search .pagefind-ui__search-input,
+		#cactus__search .pagefind-ui__result,
+		#cactus__search .pagefind-ui__result-link {
+			transition: none;
+		}
 	}
 </style>
