@@ -11,7 +11,7 @@ permissions:
 
 jobs:
   lint:
-    name: Check for build and type issues
+    name: Check, test and build
     runs-on: ubuntu-latest
 
     steps:
@@ -40,3 +40,9 @@ jobs:
 
       - name: Run build
         run: pnpm build
+
+      - name: Install Playwright browser
+        run: pnpm exec playwright install --with-deps chromium
+
+      - name: Run search smoke tests
+        run: pnpm test:e2e

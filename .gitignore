@@ -3,6 +3,9 @@ dist/
 .output/
 .vercel/
 node_modules/
+# test output
+playwright-report/
+test-results/
 # dependencies
 node_modules/
 

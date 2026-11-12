@@ -15,6 +15,8 @@
 - `pnpm check`：执行 Astro 类型与内容检查（`astro check`）。
 - `pnpm build`：通过 Vercel 适配器构建到 `.vercel/output/static`，并自动执行 `postbuild`。
 - `pnpm postbuild`：为 `.vercel/output/static` 生成 Pagefind 搜索索引。
+- `pnpm exec playwright install chromium`：首次运行浏览器测试前安装 Chromium。
+- `pnpm test:e2e`：运行搜索弹窗冒烟测试；需先执行 `pnpm build`，测试会启动 `.vercel/output/static` 静态服务。
 - `pnpm format`：使用 Prettier 格式化代码与文档。
 - 完整本地预览（含 `/api/views`）使用 `npx vercel dev`；Vercel 适配器不支持 `astro preview`。
 
@@ -28,10 +30,10 @@
 
 ## 测试与校验要求
 
-- 当前未配置独立单元测试框架，质量门禁以 CI 为准。
-- 提交前至少执行：`pnpm check` 与 `pnpm build`。
+- 已配置 Playwright 搜索弹窗冒烟测试，位于 `tests/e2e/`。
+- 提交前至少执行：`pnpm check`、`pnpm lint`、`pnpm build` 与 `pnpm test:e2e`。
 - 涉及页面或内容改动时，在 `pnpm dev` 下手动验证关键路径；涉及 API/阅读量时同时验证 `pnpm build` 产出的 `.vercel/output`。
-- 涉及搜索功能改动时，执行 `pnpm build` 并在 `.vercel/output/static/pagefind` 验证检索结果。
+- 涉及搜索功能改动时，执行 `pnpm build` 并运行 `pnpm test:e2e`，验证检索结果、空状态与清除行为。
 
 ## 提交与 Pull Request 规范
 
