@@ -25,7 +25,9 @@ export default defineConfig({
 	integrations: [
 		expressiveCode(expressiveCodeOptions),
 		icon(),
-		sitemap(),
+		sitemap({
+			filter: (page) => !/^\/tags\/[^/]+\//.test(new URL(page).pathname),
+		}),
 		mdx(),
 	],
 	markdown: {

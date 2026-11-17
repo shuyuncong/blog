@@ -7,19 +7,23 @@ interface Props {
 }
 
 const { nextUrl, prevUrl } = Astro.props;
+
+// Astro's paginate() emits page URLs without a trailing slash, while the
+// canonical URLs (and all other internal links) use the directory form.
+const canonicalHref = (url: string) => (url.endsWith("/") ? url : `${url}/`);
 ---
 
 {
 	(prevUrl || nextUrl) && (
 		<nav class="mt-8 flex items-center gap-x-4">
 			{prevUrl && (
-				<a class="me-auto py-2 sm:hover:text-accent" data-astro-prefetch href={prevUrl.url}>
+				<a class="me-auto py-2 sm:hover:text-accent" data-astro-prefetch href={canonicalHref(prevUrl.url)}>
 					{prevUrl.srLabel && <span class="sr-only">{prevUrl.srLabel}</span>}
 					{prevUrl.text ? prevUrl.text : "上一页"}
 				</a>
 			)}
 			{nextUrl && (
-				<a class="ms-auto py-2 sm:hover:text-accent" data-astro-prefetch href={nextUrl.url}>
+				<a class="ms-auto py-2 sm:hover:text-accent" data-astro-prefetch href={canonicalHref(nextUrl.url)}>
 					{nextUrl.srLabel && <span class="sr-only">{nextUrl.srLabel}</span>}
 					{nextUrl.text ? nextUrl.text : "下一页"}
 				</a>

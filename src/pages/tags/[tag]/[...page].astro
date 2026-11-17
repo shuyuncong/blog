@@ -29,6 +29,7 @@ const { tag } = Astro.params;
 
 const meta = {
 	description: `查看所有带有标签 ${tag} 的文章。`,
+	noindex: true,
 	title: `标签：${tag}`,
 };
 

@@ -26,6 +26,7 @@ export interface SiteMeta {
 	description?: string;
 	jsonLd?: Record<string, unknown> | Record<string, unknown>[] | undefined;
 	modifiedDate?: string | undefined;
+	noindex?: boolean | undefined;
 	ogImage?: string | undefined;
 	title: string;
 }

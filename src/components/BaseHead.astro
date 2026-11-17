@@ -7,7 +7,7 @@ import "../styles/global.css";
 
 type Props = SiteMeta;
 
-const { articleDate, description, jsonLd, modifiedDate, ogImage, title } = Astro.props;
+const { articleDate, description, jsonLd, modifiedDate, noindex, ogImage, title } = Astro.props;
 
 const titleSeparator = "•";
 const siteTitle = `${title} ${titleSeparator} ${siteConfig.title}`;
@@ -50,6 +50,7 @@ const structuredData = [
 <meta content={siteTitle} name="title" />
 <meta content={description} name="description" />
 <meta content={siteConfig.author} name="author" />
+{noindex && <meta content="noindex, follow" name="robots" />}
 
 {/* Theme Colour */}
 <meta content="#fafafa" name="theme-color" />
